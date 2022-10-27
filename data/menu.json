@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "name": "Core Java Fundementals",
+    "effortInDays": 15,
+    "pricing": { "Flipkart": 300, "Amazon": 600, "Bookwagon": 1200 },
+    "category": "Java",
+    "image": "img/resources/B/A.jpg",
+    "description": "Fully Updated for Java SE 9, 10 & 11. For serious programmers, Core Java, Volume I―Fundamentals is the definitive guide to writing robust, maintainable code. Whether you’re using Java SE 9, 10, or 11, it will help you achieve a deep and practical understanding of the language and API, and its hundreds of realistic examples reveal the most powerful ways to get the job done. "
+  },
+  {
+    "id": "2",
+    "name": "Core Java Advanced",
+    "effortInDays": 20,
+    "pricing": { "Flipkart": 325, "Amazon": 650, "Bookwagon": 1300 },
+    "category": "Java",
+    "image": "img/resources/B/B.jpg",
+    "description": "Here is what this book covers. Chapter 1: streamsChapter 2: input and output Chapter 3: database programming Chapter 4: XML Chapter 5: The date and time API Chapter 6: internationalization Chapter 7: scripting, compiling, and annotation processingChapter 8: networking & securityChapter 9: Advanced swing and graphicsChapter "
+  },
+  {
+    "id": "3",
+    "name": "Java The Complete Reference",
+    "effortInDays": 30,
+    "pricing": { "Flipkart": 363, "Amazon": 725, "Bookwagon": 1450 },
+    "category": "Java",
+    "image": "img/resources/B/C.jpg",
+    "description": "The definitive guide to Java programming—thoroughly revised for long-term support release Java SE 11. Fully updated for the current version of Java, Java SE 11, This practical guide from Oracle press shows, step by step, how to design, write, troubleshoot, run, and maintain high-performance Java programs. Inside, bestselling author Herbert schildt covers the entire language"
+  },
+  {
+    "id": "4",
+    "name": "Head First Java",
+    "effortInDays": 10,
+    "pricing": { "Flipkart": 363, "Amazon": 725, "Bookwagon": 1450 },
+    "category": "Java",
+    "image": "img/resources/B/D.jpg",
+    "description": "Ready to learn Java? This book combines puzzles, strong visuals, mysteries, and soul-searching interviews with famous Java objects to engage you in many different ways. It's fast, it's fun, and it's effective. And despite its playful appearance, Head First Java is serious stuff: a complete introduction to OOPs and Java. "
+  },
+  {
+    "id": "5",
+    "name": "Data Structures in Java",
+    "effortInDays": 25,
+    "pricing": { "Flipkart": 363, "Amazon": 725, "Bookwagon": 1450 },
+    "category": "Java",
+    "image": "img/resources/B/E.jpg",
+    "description": "The design and analysis of efficient data structures has long been recognized as a key component of the Computer Science curriculum. Goodrich and Tomassia's approach to this classic topic is based on the object-oriented paradigm as the framework of choice for the design of data structures. For each ADT presented in the text, the authors provide an associated Java interface. "
+  },
+  {
+    "id": "6",
+    "name": "Udemy Masterclass",
+    "effortInDays": 30,
+    "pricing": { "Flipkart": 363, "Amazon": 725, "Bookwagon": 1450 },
+    "category": "Java",
+    "image": "img/resources/B/F.jpg",
+    "description": "Acquire essential java basics for transitioning to the Spring Framework, Java EE, Android development and more. Be able to sit for and pass the Oracle Java Certificate exam if you choose. Learn industry best practices in Java software development from a professional Java developer who has worked in the language for 18 years. Obtain proficiency in Java 8 and Java 11."
+  }
+]

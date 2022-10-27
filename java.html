@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>40 Hours!</title>
+    <!-- CSS only -->
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Libre+Bodoni&family=Lora&family=Mukta&family=Oxygen&family=Source+Serif+Pro&family=Tiro+Kannada&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="js/resource.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <!--pull left is bootstrap way of saying float left. visible-md and visible-lg will ensure that the impage is visible only when the screen is not small-->
+            <a
+              href="index.html"
+              class="pull-left visible-md visible-lg visible-sm visible-xs"
+            >
+              <div id="logo-img" alt="Logo image"></div>
+            </a>
+            <div class="navbar-brand" id="nvbr01">
+              <a
+                href="index.html"
+                class="pull-left visible-md visible-lg visible-xs visible-sm"
+                ><h1>40 Hours Challenge!</h1></a
+              >
+              <p>
+                <!--<img src="img/x.jpg" alt="sub text" />-->
+              </p>
+            </div>
+            <!--data-target="#collapsable-nav" points to the element with that ID-->
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#collapsable-nav"
+              aria-expanded="false"
+            >
+              <!--sr only is for screen reader-->
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div id="collapsable-nav" class="collapse navbar-collapse">
+            <!--nav navbar-nav ensures that the elements are part of nav bar. navbar-right aligns to the right-->
+            <ul id="nav-list" class="nav navbar-nav navbar-right">
+              <li class="active">
+                <a href="index.html">
+                  <!--Glyficons are part of bootstrap https://getbootstrap.com/docs/3.4/components/#glyphicons-->
+                  <span
+                    class="glyphicon glyphicon glyphicon-folder-open"
+                  ></span>
+                  <!--THe class hidden-xs will hide the break element at xs size-->
+                  <br class="hidden-xs" />
+                  Topics</a
+                >
+              </li>
+              <li>
+                <a href="about.html">
+                  <span class="glyphicon glyphicon-info-sign"></span
+                  ><br class="hidden-xs" />
+                  About</a
+                >
+              </li>
+              <li>
+                <a href="roadmap.html">
+                  <span
+                    id="nav-no-of-items-cart"
+                    class="glyphicon glyphicon glyphicon-road"
+                  ></span
+                  ><br class="hidden-xs" />
+                  Roadmap</a
+                >
+              </li>
+              <li id="phone" class="hidden-xs hidden-sm">
+                <a href="mailto:learn@aol.com"> <span>learn@aol.com</span></a>
+                <div>Reach out to us</div>
+              </li>
+            </ul>
+            <!-- #nav-list -->
+          </div>
+          <!-- .collapse .navbar-collapse -->
+        </div>
+      </nav>
+    </header>
+    <div id="complete-body-under-nav"></div>
+    <div id="call-btn" class="visible-xs visible-sm">
+      <a class="btn" href="mailto:learn@aol.com"
+        ><span class="glyphicon glyphicon-earphone">learn@aol.com</a
+      >
+    </div>
+    <div id="xs-deliver" class="text-center visible-xs">Reach out to us</div>
+    <div id="main-content" class="container"></div>
+    <h2 id="menu-categories-title" class="text-center">Java Fundementals</h2>
+    <!--Iteration of items begins -->
+    <div class="container">
+    <h3></h3>
+    <hr>
+    <p>This is a book about instructing computers. Computers are about as common as screwdrivers today, but they are quite a bit more complex, and making them do what you want them to do isn’t always easy.</p>
+
+      <p>If the task you have for your computer is a common, well-understood one, such as showing you your email or acting like a calculator, you can open the appropriate application and get to work. But for unique or open-ended tasks, there probably is no application.</p>
+      
+      <p>That is where programming may come in. Programming is the act of constructing a program—a set of precise instructions telling a computer what to do. Because computers are dumb, pedantic beasts, programming is fundamentally tedious and frustrating.</p>
+      
+      <p>Fortunately, if you can get over that fact, and maybe even enjoy the rigor of thinking in terms that dumb machines can deal with, programming can be rewarding. It allows you to do things in seconds that would take forever by hand. It is a way to make your computer tool do things that it couldn’t do before. And it provides a wonderful exercise in abstract thinking.</p>
+      
+      <p>Most programming is done with programming languages. A programming language is an artificially constructed language used to instruct computers. It is interesting that the most effective way we’ve found to communicate with a computer borrows so heavily from the way we communicate with each other. Like human languages, computer languages allow words and phrases to be combined in new ways, making it possible to express ever new concepts.</p>
+      
+      <p>At one point language-based interfaces, such as the BASIC and DOS prompts of the 1980s and 1990s, were the main method of interacting with computers. They have largely been replaced with visual interfaces, which are easier to learn but offer less freedom. Computer languages are still there, if you know where to look. One such language, JavaScript, is built into every modern web browser and is thus available on almost every device.</p>
+      
+      <p>This book will try to make you familiar enough with this language to do useful and amusing things with it.</p>
+
+      <p>A program is many things. It is a piece of text typed by a programmer, it is the directing force that makes the computer do what it does, it is data in the computer’s memory, yet it controls the actions performed on this same memory. Analogies that try to compare programs to objects we are familiar with tend to fall short. A superficially fitting one is that of a machine—lots of separate parts tend to be involved, and to make the whole thing tick, we have to consider the ways in which these parts interconnect and contribute to the operation of the whole.</p>
+
+      <p>A computer is a physical machine that acts as a host for these immaterial machines. Computers themselves can do only stupidly straightforward things. The reason they are so useful is that they do these things at an incredibly high speed. A program can ingeniously combine an enormous number of these simple actions to do very complicated things.</p>
+
+<p>A program is a building of thought. It is costless to build, it is weightless, and it grows easily under our typing hands.</p>
+
+<p>>But without care, a program’s size and complexity will grow out of control, confusing even the person who created it. Keeping programs under control is the main problem of programming. When a program works, it is beautiful. The art of programming is the skill of controlling complexity. The great program is subdued—made simple in its complexity.</p>
+
+<p>Some programmers believe that this complexity is best managed by using only a small set of well-understood techniques in their programs. They have composed strict rules (“best practices”) prescribing the form programs should have and carefully stay within their safe little zone.</p>
+
+<p>This is not only boring, it is ineffective. New problems often require new solutions. The field of programming is young and still developing rapidly, and it is varied enough to have room for wildly different approaches. There are many terrible mistakes to make in program design, and you should go ahead and make them so that you understand them. A sense of what a good program looks like is developed in practice, not learned from a list of rules.</p>
+  </div>
+    <div id="check-out-division">
+      <hr class="visible-xs visible-md visible-lg" />
+      <a id="check-out-link" href="roadmap.html">
+        <button
+          id="check-out-button"
+          type="button"
+          class="btn btn-primary mx-auto"
+        >Review Roadmap</button>
+      </a>
+    </div>
+    <br />
+    <div id="back-from-checkout">
+      <a id="back-from-checkout-link" href="index.html">
+        <button
+          id="back-from-checkout-button"
+          type="button"
+          class="btn btn-primary mx-auto"
+        >Back to Topics</button>
+      </a>
+    </div>
+    <!-- End of #Main Content -->
+    <footer class="panel-footer">
+      <div class="container">
+        <div class="row">
+          <section id="hours" class="col-sm-4">
+            <span>Work on your conversations!</span><br />
+            https://www.econtalk.org/<br />
+            https://seenunseen.in/<br />
+            https://lexfridman.com/podcast/<br />
+            <hr class="visible-xs" />
+          </section>
+          <section id="address" class="col-sm-4">
+            <span>Get your questions answered!</span><br />
+            https://stackoverflow.com/ <br />https://www.baeldung.com/
+            <br />https://www.geeksforgeeks.org/
+            
+            <hr class="visible-xs" />
+          </section>
+          <section id="address" class="col-sm-4">
+            <span>Test your skills!</span><br />
+            https://leetcode.com/ <br />https://www.kaggle.com/<br />
+            https://www.hackerrank.com
+          </section>
+          </section>
+        </div>
+        <div class="text-center">
+          &copy; Copyright  The Decoders, 2022
+        </div>
+      </div>
+    </footer>
+
+    <!--Java Script -->
+    <!-- jQuery is needed for JS -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.js"
+      integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/data/menu.json"></script>
+  </body>
+</html>
