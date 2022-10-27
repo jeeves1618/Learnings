@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("cart-button-title").textContent =
       "Check out the topics";
     var cartButtonLink = document.getElementById("cart-button-link");
-    cartButtonLink.href = "index.html";
+    cartButtonLink.href = "topics.html";
   } else {
     document.getElementById("cart-title").textContent = "My Learning Roadmap";
     document.getElementById("cart-button-title").textContent = "Save Roadmap";
