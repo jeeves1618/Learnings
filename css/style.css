@@ -191,7 +191,7 @@ a:focus {
 #python-tile,
 #system-tile {
   height: 250px;
-  width: 100%;
+  width: auto;
   margin-bottom: 15px;
   position: relative;
   background-color: rgb(44, 41, 38);
@@ -220,12 +220,12 @@ a:focus {
 #bigo-tile {
   background: url("../img/bigo_tile.jpg") no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 }
 #html-tile {
   background: url("../img/htmlcss_tile.jpg") no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 }
 #js-tile {
   background: url("../img/js_tile.jpg") no-repeat;
@@ -235,7 +235,7 @@ a:focus {
 #nodejs-tile {
   background: url("../img/nodejs_tile.jpg") no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 }
 #java-tile {
   background: url("../img/java_tile.jpg") no-repeat;
@@ -369,13 +369,13 @@ a:focus {
   }
 
   #nvbr01 h1 {
-    /*Restaurant Name*/
-    font-family: "Libre Bodoni", serif;
+    font-family: "Open Sans", sans-serif;
     /*color: #951c49;*/
-    color: white;
-    font-size: 1.75em;
+    font-size: 3rem;
     font-weight: bolder;
-    /*text-shadow: 1px 1px 1px #222;*/
+    color: rgb(238, 164, 80);
+    text-transform: uppercase;
+    float: none;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 0.75;
@@ -413,17 +413,16 @@ a:focus {
   }
 
   #nvbr01 h1 {
-    /*Restaurant Name*/
-    font-family: "Libre Bodoni", serif;
+    font-family: "Open Sans", sans-serif;
     /*color: #951c49;*/
-    color: white;
-    font-size: 1.75em;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #222;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: rgb(238, 164, 80);
+    text-transform: uppercase;
+    float: none;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 1.2;
-    max-width: 175px;
     word-wrap: break-word;
   }
 
@@ -566,17 +565,18 @@ a:focus {
   }
 
   #nvbr01 h1 {
-    /*Restaurant Name*/
-    font-family: "Libre Bodoni", serif;
+    font-family: "Open Sans", sans-serif;
     /*color: #951c49;*/
-    color: white;
-    font-size: 1.55em;
+    font-size: 3rem;
     font-weight: bolder;
+    color: rgb(238, 164, 80);
+    text-transform: uppercase;
+    float: none;
     /*text-shadow: 1px 1px 1px #222;*/
     margin-top: 0;
     margin-bottom: 0;
     line-height: 0.75;
-    max-width: 175px;
+
     line-height: 1.2;
     word-wrap: break-word;
     margin-left: 0px;
@@ -620,23 +620,6 @@ a:focus {
     display: block;
   }
 
-  #jumbotran-main-text {
-    position: relative;
-    text-align: center;
-    font-size: 2em;
-  }
-
-  #jumbotran-sub-text p {
-    position: relative;
-    text-align: center;
-    font-size: 1em;
-  }
-
-  #jumbotran-main-text,
-  #jumbotran-sub-text {
-    color: white;
-    padding-top: 10px;
-  }
   .menu-item-details {
     font-size: 0.9em;
     margin: auto;
@@ -659,19 +642,17 @@ a:focus {
   }
 
   .navbar-brand h1 {
-    /* Restaurant name */
-    /*Restaurant Name*/
-    font-family: "Libre Bodoni", serif;
+    font-family: "Open Sans", sans-serif;
     /*color: #951c49;*/
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    /*text-shadow: 1px 1px 1px #222;*/
+    font-size: 3rem;
+    font-weight: bolder;
+    color: rgb(238, 164, 80);
+    text-transform: uppercase;
+    float: none;
     margin-top: 10;
     line-height: 0.75;
-    margin-left: 0px;
+
     display: block;
-    max-width: 150px;
     word-wrap: break-word;
     line-height: 1.2;
     text-align: center;
