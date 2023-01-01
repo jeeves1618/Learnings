@@ -191,7 +191,7 @@ a:focus {
 #python-tile,
 #system-tile {
   height: 250px;
-  width: auto;
+  width: 100%;
   margin-bottom: 15px;
   position: relative;
   background-color: rgb(44, 41, 38);
@@ -233,7 +233,7 @@ a:focus {
   background-size: cover;
 }
 #nodejs-tile {
-  background: url("../img/nodejs_tile.jpg") no-repeat;
+  background: url("../img/node_tile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -536,11 +536,17 @@ a:focus {
   }
 
   #bigo-tile,
-  #devops-tile,
-  #db-tile,
-  #react-tile,
+  #html-tile,
   #js-tile,
-  #html-tile {
+  #nodejs-tile,
+  #java-tile,
+  #spring-tile,
+  #cloud-tile,
+  #react-tile,
+  #data-tile,
+  #type-tile,
+  #python-tile,
+  #system-tile {
     width: 360px;
     margin: 0 auto 15px;
   }
@@ -695,10 +701,16 @@ a:focus {
   /* Home page */
   #bigo-tile,
   #html-tile,
-  #devops-tile,
-  #db-tile,
+  #js-tile,
+  #nodejs-tile,
+  #java-tile,
+  #spring-tile,
+  #cloud-tile,
   #react-tile,
-  #js-tile {
+  #data-tile,
+  #type-tile,
+  #python-tile,
+  #system-tile {
     width: 280px;
     margin: 0 auto 15px;
   }
