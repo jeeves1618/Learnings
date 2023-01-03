@@ -41,7 +41,7 @@ body {
 }
 .road-map-summary {
   display: block;
-  color: #rgb(29, 26, 24);
+  color: rgb(29, 26, 24);
   width: 100%;
   text-align: center;
 }
@@ -92,7 +92,7 @@ body {
 }
 
 .navbar-brand li .active {
-  background: #rgb(29, 26, 24);
+  background: rgb(29, 26, 24);
 }
 
 #nav-list {
@@ -106,7 +106,7 @@ body {
 #nav-list a:hover,
 a:active,
 a:focus {
-  background: #rgb(29, 26, 24);
+  background: rgb(29, 26, 24);
 }
 #nav-list a span {
   font-size: 1.8em;
@@ -442,7 +442,7 @@ a:focus {
     padding: 10px;
     border: 2px solid #ffc220;
     background-color: white;
-    color: #rgb(29, 26, 24);
+    color: rgb(29, 26, 24);
   }
 
   #xs-deliver {
@@ -736,7 +736,7 @@ a:focus {
     padding-bottom: 5px;
     border: 2px solid #ffc220;
     background-color: white;
-    color: #rgb(29, 26, 24);
+    color: rgb(29, 26, 24);
   }
 
   #xs-deliver {
@@ -798,7 +798,7 @@ a:focus {
 
   hr {
     width: 60%;
-    color: #rgb(29, 26, 24);
+    color: rgb(29, 26, 24);
   }
   .menu-item-details {
     font-size: 0.9em;
