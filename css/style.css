@@ -70,6 +70,13 @@ body {
   text-align: center;
 }
 
+main h1 {
+  text-align: center;
+  color: rgb(238, 164, 80);
+  font-size: 3rem;
+  padding-bottom: 20px;
+}
+
 .navbar-brand a:hover,
 .navbar-brand a:focus {
   text-decoration: none;
@@ -178,10 +185,10 @@ a:focus {
 }
 /* END FOOTER */
 /* Overflow hidden will ensure that nothing comes out of the tile*/
-#bigo-tile,
-#html-tile,
-#js-tile,
-#nodejs-tile,
+#bookkeep-tile,
+#adjust-tile,
+#cycle-tile,
+#merchant-tile,
 #java-tile,
 #spring-tile,
 #cloud-tile,
@@ -189,6 +196,7 @@ a:focus {
 #data-tile,
 #type-tile,
 #python-tile,
+#account-tile,
 #system-tile {
   height: 250px;
   width: 100%;
@@ -197,10 +205,10 @@ a:focus {
   background-color: rgb(44, 41, 38);
   overflow: hidden;
 }
-#bigo-tile:hover,
-#html-tile:hover,
-#js-tile:hover,
-#nodejs-tile:hover,
+#bookkeep-tile:hover,
+#adjust-tile:hover,
+#cycle-tile:hover,
+#merchant-tile:hover,
 #java-tile:hover,
 #spring-tile:hover,
 #cloud-tile:hover,
@@ -208,6 +216,7 @@ a:focus {
 #data-tile:hover,
 #type-tile:hover,
 #python-tile:hover,
+#account-tile:hover,
 #system-tile:hover {
   box-shadow: 0 1px 15px 1px #3f0c1f;
 }
@@ -217,23 +226,23 @@ a:focus {
   vertical-align: bottom;
 }
 
-#bigo-tile {
-  background: url("../img/bigo_tile.jpg") no-repeat;
+#bookkeep-tile {
+  background: url("../img/bookkeep_tile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
-#html-tile {
-  background: url("../img/htmlcss_tile.jpg") no-repeat;
+#adjust-tile {
+  background: url("../img/adjust_tile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
-#js-tile {
-  background: url("../img/js_tile.jpg") no-repeat;
+#cycle-tile {
+  background: url("../img/cycle_tile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
-#nodejs-tile {
-  background: url("../img/node_tile.jpg") no-repeat;
+#merchant-tile {
+  background: url("../img/merchant_tile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -278,10 +287,15 @@ a:focus {
   background-position: center;
   background-size: cover;
 }
-#bigo-tile span,
-#html-tile span,
-#js-tile span,
-#nodejs-tile span,
+#account-tile {
+  background: url("../img/account_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#bookkeep-tile span,
+#adjust-tile span,
+#cycle-tile span,
+#merchant-tile span,
 #java-tile span,
 #spring-tile span,
 #cloud-tile span,
@@ -289,6 +303,7 @@ a:focus {
 #data-tile span,
 #type-tile span,
 #python-tile span,
+#account-tile span,
 #system-tile span {
   position: absolute;
   bottom: 0;
@@ -535,10 +550,10 @@ a:focus {
     text-transform: uppercase;
   }
 
-  #bigo-tile,
-  #html-tile,
-  #js-tile,
-  #nodejs-tile,
+  #bookkeep-tile,
+  #adjust-tile,
+  #cycle-tile,
+  #merchant-tile,
   #java-tile,
   #spring-tile,
   #cloud-tile,
@@ -546,6 +561,7 @@ a:focus {
   #data-tile,
   #type-tile,
   #python-tile,
+  #account-tile,
   #system-tile {
     width: 360px;
     margin: 0 auto 15px;
@@ -699,10 +715,10 @@ a:focus {
   }
   /* End Footer */
   /* Home page */
-  #bigo-tile,
-  #html-tile,
-  #js-tile,
-  #nodejs-tile,
+  #bookkeep-tile,
+  #adjust-tile,
+  #cycle-tile,
+  #merchant-tile,
   #java-tile,
   #spring-tile,
   #cloud-tile,
@@ -710,6 +726,7 @@ a:focus {
   #data-tile,
   #type-tile,
   #python-tile,
+  #account-tile,
   #system-tile {
     width: 280px;
     margin: 0 auto 15px;
