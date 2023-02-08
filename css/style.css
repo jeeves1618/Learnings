@@ -188,6 +188,7 @@ a:focus {
 #bigo-tile,
 #html-tile,
 #js-tile,
+#nodejs-tile,
 #bookkeep-tile,
 #adjust-tile,
 #cycle-tile,
@@ -211,6 +212,7 @@ a:focus {
 #bigo-tile:hover,
 #html-tile:hover,
 #js-tile:hover,
+#nodejs-tile:hover,
 #bookkeep-tile:hover,
 #adjust-tile:hover,
 #cycle-tile:hover,
@@ -243,6 +245,11 @@ a:focus {
 }
 #js-tile {
   background: url("../img/js_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#nodejs-tile {
+  background: url("../img/node_tile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -315,6 +322,7 @@ a:focus {
 #bigo-tile span,
 #html-tile span,
 #js-tile span,
+#nodejs-tile span,
 #bookkeep-tile span,
 #adjust-tile span,
 #cycle-tile span,
@@ -575,6 +583,7 @@ a:focus {
   #bigo-tile,
   #html-tile,
   #js-tile,
+  #nodejs-tile,
   #bookkeep-tile,
   #adjust-tile,
   #cycle-tile,
@@ -743,6 +752,7 @@ a:focus {
   #bigo-tile,
   #html-tile,
   #js-tile,
+  #nodejs-tile,
   #bookkeep-tile,
   #adjust-tile,
   #cycle-tile,
