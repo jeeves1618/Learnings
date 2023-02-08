@@ -185,6 +185,9 @@ a:focus {
 }
 /* END FOOTER */
 /* Overflow hidden will ensure that nothing comes out of the tile*/
+#bigo-tile,
+#html-tile,
+#js-tile,
 #bookkeep-tile,
 #adjust-tile,
 #cycle-tile,
@@ -205,6 +208,9 @@ a:focus {
   background-color: rgb(44, 41, 38);
   overflow: hidden;
 }
+#bigo-tile:hover,
+#html-tile:hover,
+#js-tile:hover,
 #bookkeep-tile:hover,
 #adjust-tile:hover,
 #cycle-tile:hover,
@@ -225,7 +231,21 @@ a:focus {
   position: absolute;
   vertical-align: bottom;
 }
-
+#bigo-tile {
+  background: url("../img/bigo_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#html-tile {
+  background: url("../img/html_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#js-tile {
+  background: url("../img/js_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #bookkeep-tile {
   background: url("../img/bookkeep_tile.jpg") no-repeat;
   background-position: center;
@@ -292,6 +312,9 @@ a:focus {
   background-position: center;
   background-size: cover;
 }
+#bigo-tile span,
+#html-tile span,
+#js-tile span,
 #bookkeep-tile span,
 #adjust-tile span,
 #cycle-tile span,
@@ -549,7 +572,9 @@ a:focus {
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-
+  #bigo-tile,
+  #html-tile,
+  #js-tile,
   #bookkeep-tile,
   #adjust-tile,
   #cycle-tile,
@@ -715,6 +740,9 @@ a:focus {
   }
   /* End Footer */
   /* Home page */
+  #bigo-tile,
+  #html-tile,
+  #js-tile,
   #bookkeep-tile,
   #adjust-tile,
   #cycle-tile,
