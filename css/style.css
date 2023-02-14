@@ -196,6 +196,7 @@ a:focus {
 #java-tile,
 #spring-tile,
 #cloud-tile,
+#docker-tile,
 #react-tile,
 #data-tile,
 #type-tile,
@@ -220,6 +221,7 @@ a:focus {
 #java-tile:hover,
 #spring-tile:hover,
 #cloud-tile:hover,
+#docker-tile:hover,
 #react-tile:hover,
 #data-tile:hover,
 #type-tile:hover,
@@ -289,6 +291,11 @@ a:focus {
   background-position: center;
   background-size: cover;
 }
+#docker-tile {
+  background: url("../img/docker_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #react-tile {
   background: url("../img/react_tile.jpg") no-repeat;
   background-position: center;
@@ -330,6 +337,7 @@ a:focus {
 #java-tile span,
 #spring-tile span,
 #cloud-tile span,
+#docker-tile span,
 #react-tile span,
 #data-tile span,
 #type-tile span,
@@ -591,6 +599,7 @@ a:focus {
   #java-tile,
   #spring-tile,
   #cloud-tile,
+  #docker-tile,
   #react-tile,
   #data-tile,
   #type-tile,
@@ -760,6 +769,7 @@ a:focus {
   #java-tile,
   #spring-tile,
   #cloud-tile,
+  #docker-tile,
   #react-tile,
   #data-tile,
   #type-tile,
