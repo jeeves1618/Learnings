@@ -204,6 +204,7 @@ a:focus {
 #account-tile,
 #auth-tile,
 #block-tile,
+#scm-tile,
 #system-tile {
   height: 250px;
   width: 100%;
@@ -231,6 +232,7 @@ a:focus {
 #account-tile:hover,
 #auth-tile:hover,
 #block-tile:hover,
+#scm-tile:hover,
 #system-tile:hover {
   box-shadow: 0 1px 15px 1px #3f0c1f;
 }
@@ -330,6 +332,11 @@ a:focus {
   background-position: center;
   background-size: cover;
 }
+#scm-tile {
+  background: url("../img/scm_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #system-tile {
   background: url("../img/system_tile.jpg") no-repeat;
   background-position: center;
@@ -359,6 +366,7 @@ a:focus {
 #account-tile span,
 #auth-tile span,
 #block-tile span,
+#scm-tile span,
 #system-tile span {
   position: absolute;
   bottom: 0;
@@ -623,6 +631,7 @@ a:focus {
   #account-tile,
   #auth-tile,
   #block-tile,
+  #scm-tile,
   #system-tile {
     width: 360px;
     margin: 0 auto 15px;
@@ -795,6 +804,7 @@ a:focus {
   #account-tile,
   #auth-tile,
   #block-tile,
+  #scm-tile,
   #system-tile {
     width: 280px;
     margin: 0 auto 15px;
