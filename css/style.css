@@ -200,6 +200,7 @@ a:focus {
 #react-tile,
 #data-tile,
 #type-tile,
+#read-tile,
 #python-tile,
 #account-tile,
 #auth-tile,
@@ -228,6 +229,7 @@ a:focus {
 #react-tile:hover,
 #data-tile:hover,
 #type-tile:hover,
+#read-tile:hover,
 #python-tile:hover,
 #account-tile:hover,
 #auth-tile:hover,
@@ -317,6 +319,11 @@ a:focus {
   background-position: center;
   background-size: cover;
 }
+#read-tile {
+  background: url("../img/read_tile.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #python-tile {
   background: url("../img/python_tile.jpg") no-repeat;
   background-position: center;
@@ -362,6 +369,7 @@ a:focus {
 #react-tile span,
 #data-tile span,
 #type-tile span,
+#read-tile span,
 #python-tile span,
 #account-tile span,
 #auth-tile span,
@@ -627,6 +635,7 @@ a:focus {
   #react-tile,
   #data-tile,
   #type-tile,
+  #read-tile,
   #python-tile,
   #account-tile,
   #auth-tile,
@@ -800,6 +809,7 @@ a:focus {
   #react-tile,
   #data-tile,
   #type-tile,
+  #read-tile,
   #python-tile,
   #account-tile,
   #auth-tile,
