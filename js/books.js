@@ -113,7 +113,7 @@ const writeFooter = function () {
   prevRefElement.append(prevLinkElement);
 
   let nextRefElement = document.createElement("a");
-  nextRefElement.href = "/myreads.html?year=" + nextYear;
+  nextRefElement.href = "/Learnings/myreads.html?year=" + nextYear;
   bodyElement.append(nextRefElement);
   let nextLinkElement = document.createElement("span");
   nextLinkElement.textContent = nextYear + " -->";
