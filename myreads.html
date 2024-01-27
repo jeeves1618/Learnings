@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My 2024 Reads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=IM+Fell+English+SC&family=Inconsolata&family=Roboto+Slab&family=Libre+Baskerville&family=Libre+Bodoni&family=Lora&family=Mukta&family=Oxygen&family=Tiro+Kannada&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Inconsolata", monospace;
+      }
+
+      ol {
+        margin-left: 1.5%;
+      }
+      h1 {
+        text-align: center;
+      }
+      li {
+        margin: 20px;
+      }
+      a {
+        color: #000;
+        text-decoration: none; /* no underline */
+      }
+      hr {
+        width: 95%;
+        position: relative;
+        color: #000;
+        height: 2px;
+        background-color: #000;
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 7%;
+      }
+      .glyphicon {
+        font-size: 0.7em;
+        margin-right: 0.2em;
+      }
+      #prev-year {
+        float: left;
+        margin-left: 4%;
+        font-weight: bold;
+      }
+      #next-year {
+        float: right;
+        margin-right: 4%;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="main-header-year"></h1>
+    </header>
+    <hr />
+    <ol id="book-list"></ol>
+  </body>
+  <script type="module" src="js/books.js"></script>
+</html>
