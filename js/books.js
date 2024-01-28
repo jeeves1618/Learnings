@@ -84,8 +84,7 @@ const addBookToPage = function (element, bookListElement) {
   bookNameElement.textContent = element.bookTitle;
   orderedListElement.append(bookNameElement);
   let authorNameElement = document.createElement("em");
-  authorNameElement.textContent =
-    " By " + element.authorFirstName + " " + element.authorLastName;
+  authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);
   orderedListElement.append("  ");
   const starElement = [];
@@ -141,6 +140,61 @@ const breakElement = function () {
   bodyElement.append(document.createElement("br"));
   bodyElement.append(document.createElement("br"));
   bodyElement.append(document.createElement("br"));
+};
+
+const assignAuthors = function (book) {
+  let authorsString = " By " + book.authorFirstName + " " + book.authorLastName;
+  if (book.authorsFirstName2 != " ") {
+    console.log(book.authorFirstName + " " + book.authorsFirstName2);
+    if (book.authorsFirstName3 == " ") {
+      authorsString =
+        authorsString +
+        " and " +
+        book.authorsFirstName2 +
+        " " +
+        book.authorsLastName2;
+      console.log("Step 1 : " + authorsString);
+      return authorsString;
+    } else {
+      authorsString =
+        authorsString +
+        " , " +
+        book.authorsFirstName2 +
+        " " +
+        book.authorsLastName2;
+    }
+  } else {
+    return authorsString;
+  }
+
+  if (book.authorsFirstName4 == " " && book.authorsFirstName3 != " ") {
+    authorsString =
+      authorsString +
+      " and " +
+      book.authorsFirstName3 +
+      " " +
+      book.authorsLastName3;
+    console.log("Step 2 : " + authorsString);
+    return authorsString;
+  } else {
+    authorsString =
+      authorsString +
+      " , " +
+      book.authorsFirstName3 +
+      " " +
+      book.authorsLastName3;
+    return authorsString;
+  }
+  if (book.authorsFirstName4 != " ") {
+    authorsString =
+      authorsString +
+      " and " +
+      book.authorsFirstName4 +
+      " " +
+      book.authorsLastName4;
+    console.log("Step 3 : " + authorsString);
+    return authorsString;
+  }
 };
 getTopics();
 writeFooter();
