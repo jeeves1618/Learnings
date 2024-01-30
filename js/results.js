@@ -4,9 +4,14 @@ const searchParams = new URLSearchParams(window.location.search);
 let bodyElement = document.querySelector("body");
 
 let searchToken = searchParams.get("token");
-const currentDate = new Date();
-let currentYear = currentDate.getFullYear();
-
+if (searchToken.toUpperCase().includes("FICTION")) searchToken = "Novel";
+if (searchToken.toUpperCase().includes("FICTION")) searchToken = "Novel";
+if (searchToken.toUpperCase().includes("SECURITIES")) searchToken = "Finance";
+if (searchToken.toUpperCase().includes("MUTUAL")) searchToken = "Finance";
+if (searchToken.toUpperCase().includes("BUSINESS")) searchToken = "Finance";
+if (searchToken.toUpperCase().includes("STOCK")) searchToken = "Finance";
+if (searchToken.toUpperCase().includes("EQUIT")) searchToken = "Finance";
+if (searchToken.toUpperCase().includes("MARKETS")) searchToken = "ECONOMICS";
 const titleElement = document.querySelector("title");
 titleElement.textContent = "Search Results";
 
