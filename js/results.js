@@ -1,37 +1,31 @@
 `use strict`;
-
 const searchParams = new URLSearchParams(window.location.search);
 
 let bodyElement = document.querySelector("body");
 
-let yearOfReading = searchParams.get("year");
+let searchToken = searchParams.get("token");
 const currentDate = new Date();
 let currentYear = currentDate.getFullYear();
-if (yearOfReading == null) yearOfReading = currentYear;
-console.log(yearOfReading);
 
-const mainHeaderElement = document.getElementById("main-header-year");
-mainHeaderElement.textContent = "My " + yearOfReading + " Reads";
 const titleElement = document.querySelector("title");
-titleElement.textContent = "My " + yearOfReading + " Reads";
+titleElement.textContent = "Search Results";
 
-let formatPage = function (formatedData) {
-  let prevMonth = "00";
-  const bookListElement = document.getElementById("book-list");
-  for (const element of formatedData) {
-    let yearToBeConsidered = filterByYear(element);
-
-    if (yearToBeConsidered == yearOfReading) {
-      let currentMonth = element.dateOfReading.substring(5, 7);
-
-      if (currentMonth > prevMonth) {
-        breakMonth(currentMonth, bookListElement);
-        prevMonth = currentMonth;
-      }
-      addBookToPage(element, bookListElement);
-    }
-  }
+const lineSeperator = function () {
+  bodyElement.append(document.createElement("hr"));
 };
+
+const homeScreen = function () {
+  let divHomeRefElement = document.createElement("div");
+  divHomeRefElement.id = "home-link-div";
+  bodyElement.append(divHomeRefElement);
+
+  let homeRefElement = document.createElement("a");
+  homeRefElement.href = "/Learnings/myreads.html";
+  homeRefElement.textContent = "Home";
+  homeRefElement.id = "home-link";
+  divHomeRefElement.append(homeRefElement);
+};
+
 const getTopics = function () {
   console.log("Get Topics Invoked");
   fetch(
@@ -60,19 +54,34 @@ const getTopics = function () {
     });
 };
 
-const filterByYear = function (book) {
-  let yearToBeConsidered;
-
-  if (book.dateOfReading.substring(0, 4) === "0001") {
-    if (book.dateOfPurchase.substring(0, 4) === "2024") {
-      yearToBeConsidered = "0001";
+let formatPage = function (formatedData) {
+  let countOfBooksSelected = 0;
+  const bookListElement = document.getElementById("book-list");
+  for (const element of formatedData) {
+    if (element.bookGenre.toUpperCase().includes(searchToken.toUpperCase())) {
+      addBookToPage(element, bookListElement);
+      countOfBooksSelected++;
+    } else if (
+      element.bookTitle.toUpperCase().includes(searchToken.toUpperCase())
+    ) {
+      addBookToPage(element, bookListElement);
+      countOfBooksSelected++;
+    } else if (
+      assignAuthors(element).toUpperCase().includes(searchToken.toUpperCase())
+    ) {
+      addBookToPage(element, bookListElement);
+      countOfBooksSelected++;
     } else {
-      yearToBeConsidered = book.dateOfPurchase.substring(0, 4);
+      console.log("Token " + searchToken + " not matched");
     }
-  } else {
-    yearToBeConsidered = book.dateOfReading.substring(0, 4);
   }
-  return yearToBeConsidered;
+
+  if (countOfBooksSelected == 0) {
+    bookListElement.append(
+      (document.createElement("strong").textContent =
+        "Sorry, I do not have any books matching your criteria! Please try again.")
+    );
+  }
 };
 
 const addBookToPage = function (element, bookListElement) {
@@ -99,51 +108,6 @@ const addBookToPage = function (element, bookListElement) {
   for (let i = 0; i < element.ratingOfUsefulness; i++) {
     orderedListElement.append(starElement[i]);
   }
-};
-
-const scrollManager = function () {
-  let nextYear = Number(yearOfReading) + 1;
-  let prevYear = Number(yearOfReading) - 1;
-
-  let prevRefElement = document.createElement("a");
-  prevRefElement.href = "/Learnings/myreads.html?year=" + prevYear;
-
-  bodyElement.append(prevRefElement);
-  let prevLinkElement = document.createElement("span");
-  prevLinkElement.textContent = "<-- " + prevYear;
-  prevLinkElement.id = "prev-year";
-  console.log(prevLinkElement);
-  prevRefElement.append(prevLinkElement);
-
-  let nextRefElement = document.createElement("a");
-  nextRefElement.href = "/Learnings/myreads.html?year=" + nextYear;
-  bodyElement.append(nextRefElement);
-  let nextLinkElement = document.createElement("span");
-  nextLinkElement.textContent = nextYear + " -->";
-  nextLinkElement.id = "next-year";
-  if (Number(yearOfReading) < currentYear)
-    nextRefElement.append(nextLinkElement);
-};
-
-const breakMonth = function (currentMonth, bookListElement) {
-  console.log("Month : " + currentMonth + " Element : " + bookListElement);
-  if (currentMonth == undefined) {
-    console.log("Undefined");
-  } else {
-    let imageElement = document.createElement("img");
-    imageElement.src = "img/months/" + currentMonth + ".jpg";
-    imageElement.className = "center";
-    bookListElement.append(imageElement);
-  }
-  //<img src="img/months/jan.jpg" class="center" />
-};
-
-const breakElement = function () {
-  let blankSpace = document.createTextNode("\u00A0");
-  let doubleSpace = document.createTextNode("\u00A0\u00A0");
-  bodyElement.append(document.createElement("br"));
-  bodyElement.append(document.createElement("br"));
-  bodyElement.append(document.createElement("br"));
 };
 
 const assignAuthors = function (book) {
@@ -200,18 +164,21 @@ const assignAuthors = function (book) {
     return authorsString;
   }
 };
-const lineSeperator = function () {
-  bodyElement.append(document.createElement("hr"));
-};
-getTopics();
-lineSeperator();
-scrollManager();
-breakElement();
 
+const breakElement = function () {
+  let blankSpace = document.createTextNode("\u00A0");
+  let doubleSpace = document.createTextNode("\u00A0\u00A0");
+  bodyElement.append(document.createElement("br"));
+  bodyElement.append(document.createElement("br"));
+  bodyElement.append(document.createElement("br"));
+};
+
+lineSeperator();
+homeScreen();
+getTopics();
+breakElement();
 document.querySelector("#search-button").addEventListener("click", function () {
   const searchToken = document.querySelector(".form-control");
   console.log("Search requested for " + searchToken.value);
-  location.href = "Learnings/results.html?token=" + searchToken.value;
+  location.href = "results.html?token=" + searchToken.value;
 });
-
-export { getTopics };

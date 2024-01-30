@@ -1,0 +1,83 @@
+body {
+  font-family: "Inconsolata", monospace;
+}
+
+ol {
+  margin-left: 1.5%;
+}
+h1 {
+  padding-top: 2rem;
+  text-align: center;
+  background-color: white;
+  color: black;
+
+  margin: 0;
+}
+li {
+  margin: 2rem;
+}
+a {
+  color: #000;
+  text-decoration: none; /* no underline */
+}
+hr {
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  color: #000;
+  height: px;
+  background-color: #000;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 7%;
+}
+.glyphicon {
+  font-size: 0.7em;
+  margin-right: 0.2em;
+}
+#prev-year {
+  float: left;
+  margin-left: 4%;
+  font-weight: bold;
+}
+#next-year {
+  float: right;
+  margin-right: 4%;
+  font-weight: bold;
+}
+
+#home-link {
+  margin: 0 auto;
+  font-weight: bold;
+}
+#home-link-div {
+  text-align: center;
+}
+.navbar {
+  background-color: black;
+  font-size: 2rem;
+  color: white;
+}
+.navbar-dark {
+  color: white;
+}
+.btn-outline-white {
+  color: black;
+  outline: white;
+  border: white;
+}
+.btn-dark {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+.nav-link {
+  color: white;
+}
+.navbar-toggler {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
