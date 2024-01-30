@@ -3,7 +3,10 @@ const searchParams = new URLSearchParams(window.location.search);
 
 let bodyElement = document.querySelector("body");
 
+let enteredToken = "";
+
 let searchToken = searchParams.get("token");
+if (searchToken == null) searchToken = "None";
 if (searchToken.toUpperCase().includes("FICTION")) searchToken = "Novel";
 if (searchToken.toUpperCase().includes("FICTION")) searchToken = "Novel";
 if (searchToken.toUpperCase().includes("SECURITIES")) searchToken = "Finance";
@@ -190,12 +193,13 @@ document.querySelector("#search-button").addEventListener("click", function () {
   location.href = "results.html?token=" + searchToken.value;
 });
 
-/*
 document
   .querySelector("#search-input")
   .addEventListener("keypress", function (event) {
-    const searchToken = document.querySelector("#search-input");
-    console.log("Search requested for " + searchToken.value);
-    location.href = "results.html?token=" + searchToken.value;
+    console.log("Search requested for " + enteredToken);
+    if (event.key === "Enter") {
+      event.preventDefault();
+      location.href = "results.html?token=" + enteredToken;
+    }
+    enteredToken = enteredToken + event.key;
   });
-  */

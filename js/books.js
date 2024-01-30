@@ -3,6 +3,7 @@
 const searchParams = new URLSearchParams(window.location.search);
 
 let bodyElement = document.querySelector("body");
+let enteredToken = "";
 
 let yearOfReading = searchParams.get("year");
 const currentDate = new Date();
@@ -213,5 +214,16 @@ document.querySelector("#search-button").addEventListener("click", function () {
   console.log("Search requested for " + searchToken.value);
   location.href = "results.html?token=" + searchToken.value;
 });
+
+document
+  .querySelector("#search-input")
+  .addEventListener("keypress", function (event) {
+    console.log("Search requested for " + enteredToken);
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.querySelector("#search-button").click();
+    }
+    enteredToken = enteredToken + event.key;
+  });
 
 export { getTopics };
