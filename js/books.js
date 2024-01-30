@@ -211,7 +211,7 @@ breakElement();
 document.querySelector("#search-button").addEventListener("click", function () {
   const searchToken = document.querySelector(".form-control");
   console.log("Search requested for " + searchToken.value);
-  location.href = "Learnings/results.html?token=" + searchToken.value;
+  location.href = "results.html?token=" + searchToken.value;
 });
 
 export { getTopics };

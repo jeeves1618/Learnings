@@ -20,7 +20,7 @@ const homeScreen = function () {
   bodyElement.append(divHomeRefElement);
 
   let homeRefElement = document.createElement("a");
-  homeRefElement.href = "/Learnings/myreads.html";
+  homeRefElement.href = "myreads.html";
   homeRefElement.textContent = "Home";
   homeRefElement.id = "home-link";
   divHomeRefElement.append(homeRefElement);
