@@ -188,7 +188,6 @@ const assignAuthors = function (book) {
       book.authorsFirstName3 +
       " " +
       book.authorsLastName3;
-    return authorsString;
   }
   if (book.authorsFirstName4 != " ") {
     authorsString =
@@ -200,6 +199,7 @@ const assignAuthors = function (book) {
     console.log("Step 3 : " + authorsString);
     return authorsString;
   }
+  return authorsString;
 };
 const lineSeperator = function () {
   bodyElement.append(document.createElement("hr"));
@@ -228,10 +228,10 @@ document
 
 // swiped-left
 document.addEventListener("swiped-left", function (e) {
-  alert("Go Left");
+  //alert("Go Left");
 });
 // swiped-right
 document.addEventListener("swiped-right", function (e) {
-  alert("Go Right");
+  //alert("Go Right");
 });
 export { getTopics };
