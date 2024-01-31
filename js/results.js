@@ -65,23 +65,28 @@ const getTopics = function () {
 
 let formatPage = function (formatedData) {
   let countOfBooksSelected = 0;
-  const bookListElement = document.getElementById("book-list");
+  let searchTokens = searchToken.toUpperCase().split(" ");
+  let bookListElement = document.getElementById("book-list");
   for (const element of formatedData) {
-    if (element.bookGenre.toUpperCase().includes(searchToken.toUpperCase())) {
-      addBookToPage(element, bookListElement);
-      countOfBooksSelected++;
-    } else if (
-      element.bookTitle.toUpperCase().includes(searchToken.toUpperCase())
-    ) {
-      addBookToPage(element, bookListElement);
-      countOfBooksSelected++;
-    } else if (
-      assignAuthors(element).toUpperCase().includes(searchToken.toUpperCase())
-    ) {
-      addBookToPage(element, bookListElement);
-      countOfBooksSelected++;
-    } else {
-      console.log("Token " + searchToken + " not matched");
+    let bookFound = searchEngine(
+      element,
+      searchToken.toUpperCase(),
+      bookListElement
+    );
+    if (bookFound) countOfBooksSelected++;
+  }
+
+  if (countOfBooksSelected == 0 && searchTokens.length > 1) {
+    console.log("Two tokens?");
+    for (const element of formatedData) {
+      for (const token of searchTokens) {
+        let bookFound = searchEngine(
+          element,
+          token.toUpperCase(),
+          bookListElement
+        );
+        if (bookFound) countOfBooksSelected++;
+      }
     }
   }
 
@@ -93,6 +98,21 @@ let formatPage = function (formatedData) {
   }
 };
 
+const searchEngine = function (element, searchToken, bookListElement) {
+  let countOfBooksSelected = 0;
+  if (element.bookGenre.toUpperCase().includes(searchToken)) {
+    addBookToPage(element, bookListElement);
+  } else if (element.bookTitle.toUpperCase().includes(searchToken)) {
+    addBookToPage(element, bookListElement);
+    countOfBooksSelected++;
+  } else if (assignAuthors(element).toUpperCase().includes(searchToken)) {
+    addBookToPage(element, bookListElement);
+    countOfBooksSelected++;
+  } else {
+    console.log("Token " + searchToken + " not matched");
+  }
+  if (countOfBooksSelected > 0) return true;
+};
 const addBookToPage = function (element, bookListElement) {
   //const bookListElement = document.getElementById("book-list");
 
@@ -160,7 +180,6 @@ const assignAuthors = function (book) {
       book.authorsFirstName3 +
       " " +
       book.authorsLastName3;
-    return authorsString;
   }
   if (book.authorsFirstName4 != " ") {
     authorsString =
@@ -172,6 +191,7 @@ const assignAuthors = function (book) {
     console.log("Step 3 : " + authorsString);
     return authorsString;
   }
+  return authorsString;
 };
 
 const breakElement = function () {
