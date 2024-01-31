@@ -226,4 +226,12 @@ document
     enteredToken = enteredToken + event.key;
   });
 
+// swiped-left
+document.addEventListener("swiped-left", function (e) {
+  alert("Go Left");
+});
+// swiped-right
+document.addEventListener("swiped-right", function (e) {
+  alert("Go Right");
+});
 export { getTopics };
