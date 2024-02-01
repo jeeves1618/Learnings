@@ -226,6 +226,10 @@ document
     enteredToken = enteredToken + event.key;
   });
 
+let element = document.querySelector("body");
+element.addEventListener("swipe", (event) => {
+  alert("Go Left");
+});
 // swiped-left
 document.addEventListener("swiped-left", function (e) {
   //alert("Go Left");
