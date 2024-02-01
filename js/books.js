@@ -228,7 +228,7 @@ document
 
 let element = document.querySelector("body");
 element.addEventListener("swipe", (event) => {
-  alert("Go Left");
+  titleElement.textContent = "Swipe Event";
 });
 // swiped-left
 document.addEventListener("swiped-left", function (e) {
