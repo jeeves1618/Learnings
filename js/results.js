@@ -102,6 +102,7 @@ const searchEngine = function (element, searchToken, bookListElement) {
   let countOfBooksSelected = 0;
   if (element.bookGenre.toUpperCase().includes(searchToken)) {
     addBookToPage(element, bookListElement);
+    countOfBooksSelected++;
   } else if (element.bookTitle.toUpperCase().includes(searchToken)) {
     addBookToPage(element, bookListElement);
     countOfBooksSelected++;

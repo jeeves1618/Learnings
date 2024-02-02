@@ -82,3 +82,66 @@ hr {
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  body {
+    font-size: 2em;
+  }
+
+  ol {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #month_image {
+    width: 5rem;
+  }
+}
+
+/********** Large devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 2em;
+  }
+
+  ol {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #month_image {
+    width: 4rem;
+  }
+}
+
+/********** Large devices only **********/
+@media (min-width: 576px) and (max-width: 991px) {
+  body {
+    font-size: 2em;
+  }
+
+  ol {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #month_image {
+    width: 4rem;
+  }
+}
+/********** Large devices only **********/
+@media (min-width: 432px) and (max-width: 575px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  ol {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #month_image {
+    width: 3rem;
+  }
+}

@@ -134,6 +134,7 @@ const breakMonth = function (currentMonth, bookListElement) {
     let imageElement = document.createElement("img");
     imageElement.src = "img/months/" + currentMonth + ".jpg";
     imageElement.className = "center";
+    imageElement.id = "month_image";
     bookListElement.append(imageElement);
   }
   //<img src="img/months/jan.jpg" class="center" />
