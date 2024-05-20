@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Tasks</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .center {
+        text-align: center;
+        margin: 20px 0;
+      }
+      #addTaskForm {
+        display: none;
+        text-align: center;
+      }
+      .form-container {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="center">Learning Tasks</h1>
+    <h2 class="center" id="progress">Progress: 0%</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Serial Number</th>
+          <th>Topic Name</th>
+          <th>Status</th>
+          <th>Date Completed</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="taskTable">
+        <!-- Rows will be inserted here by JavaScript -->
+      </tbody>
+    </table>
+
+    <div class="center">
+      <button onclick="showAddTaskForm()">Add New Task</button>
+    </div>
+
+    <div id="addTaskForm" class="form-container">
+      <h2>Add New Task</h2>
+      <form onsubmit="addTask(event)">
+        <label for="serialNumber">Serial Number:</label>
+        <input type="number" id="serialNumber" required />
+        <br />
+        <label for="topicName">Topic Name:</label>
+        <input type="text" id="topicName" required />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const tasks = [
+        { serialNumber: 1, topicName: "HTML Basics" },
+        { serialNumber: 2, topicName: "CSS Fundamentals" },
+        { serialNumber: 3, topicName: "JavaScript Introduction" },
+        { serialNumber: 4, topicName: "DOM Manipulation" },
+      ];
+
+      const taskTable = document.getElementById("taskTable");
+      const progressElement = document.getElementById("progress");
+
+      tasks.forEach((task) => {
+        addRow(task.serialNumber, task.topicName);
+      });
+
+      function addRow(serialNumber, topicName) {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+                <td>${serialNumber}</td>
+                <td>${topicName}</td>
+                <td class="status">Incomplete</td>
+                <td class="dateCompleted"></td>
+                <td><button onclick="markAsDone(this)">Mark as Done</button></td>
+            `;
+
+        taskTable.appendChild(row);
+        updateProgress();
+      }
+
+      function markAsDone(button) {
+        const row = button.parentElement.parentElement;
+        const statusCell = row.querySelector(".status");
+        const dateCompletedCell = row.querySelector(".dateCompleted");
+
+        statusCell.textContent = "Completed";
+        const currentDate = new Date().toLocaleDateString();
+        dateCompletedCell.textContent = currentDate;
+
+        updateProgress();
+      }
+
+      function showAddTaskForm() {
+        document.getElementById("addTaskForm").style.display = "block";
+      }
+
+      function addTask(event) {
+        event.preventDefault();
+        const serialNumber = document.getElementById("serialNumber").value;
+        const topicName = document.getElementById("topicName").value;
+
+        addRow(serialNumber, topicName);
+
+        document.getElementById("addTaskForm").style.display = "none";
+        document.getElementById("serialNumber").value = "";
+        document.getElementById("topicName").value = "";
+      }
+
+      function updateProgress() {
+        const rows = taskTable.querySelectorAll("tr");
+        const totalTasks = rows.length;
+        const completedTasks =
+          taskTable.querySelectorAll(".status").length -
+          taskTable.querySelectorAll('.status:contains("Incomplete")').length;
+
+        const progress =
+          totalTasks === 0
+            ? 0
+            : Math.round((completedTasks / totalTasks) * 100);
+        progressElement.textContent = `Progress: ${progress}%`;
+      }
+    </script>
+  </body>
+</html>
