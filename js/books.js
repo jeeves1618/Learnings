@@ -228,7 +228,7 @@ document
   });
 
 let pageWidth = window.innerWidth || document.body.clientWidth;
-let treshold = Math.max(1, Math.floor(0.01 * pageWidth));
+let treshold = Math.max(5, Math.floor(0.1 * pageWidth));
 let touchstartX = 0;
 let touchstartY = 0;
 let touchendX = 0;
