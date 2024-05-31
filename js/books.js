@@ -297,7 +297,7 @@ const charterFunction = function (booksReadData, xaxisCategories) {
   var options = {
     series: [
       {
-        name: "BooksRead",
+        name: "Books Read",
         data: booksReadData,
       },
     ],
@@ -316,7 +316,12 @@ const charterFunction = function (booksReadData, xaxisCategories) {
       curve: "straight",
     },
     title: {
-      text: "How I read " + annualReads + " books in " + yearOfReading,
+      text:
+        "My journey through " +
+        annualReads +
+        " books in " +
+        yearOfReading +
+        "...",
       align: "center",
       style: {
         fontFamily: "Inconsolata",
