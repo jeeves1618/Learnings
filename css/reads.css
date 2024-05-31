@@ -83,6 +83,12 @@ hr {
   margin-top: 1rem;
 }
 
+#chart {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+}
+
 /********** Large devices only **********/
 @media (min-width: 1200px) {
   body {

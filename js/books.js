@@ -4,13 +4,15 @@ const searchParams = new URLSearchParams(window.location.search);
 
 let bodyElement = document.querySelector("body");
 let enteredToken = "";
-
+let annualReads = 0;
 let yearOfReading = searchParams.get("year");
 const currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 if (yearOfReading == null) yearOfReading = currentYear;
 console.log(yearOfReading);
 
+let booksReadData = [];
+let xaxisCategories = [];
 const mainHeaderElement = document.getElementById("main-header-year");
 mainHeaderElement.textContent = "My " + yearOfReading + " Reads";
 const titleElement = document.querySelector("title");
@@ -18,23 +20,31 @@ titleElement.textContent = "My " + yearOfReading + " Reads";
 
 let formatPage = function (formatedData) {
   let prevMonth = "00";
+  let currentMonthInteger = 0;
   const bookListElement = document.getElementById("book-list");
   for (const element of formatedData) {
     let yearToBeConsidered = filterByYear(element);
 
     if (yearToBeConsidered == yearOfReading) {
       let currentMonth = element.dateOfReading.substring(5, 7);
-
       if (currentMonth > prevMonth) {
         breakMonth(currentMonth, bookListElement);
+        if (prevMonth != "00") booksReadData.push(currentMonthInteger);
+        currentMonthInteger = 0;
         prevMonth = currentMonth;
       }
       addBookToPage(element, bookListElement);
+      currentMonthInteger = currentMonthInteger + 1;
+      console.log(element.bookTitle + " " + currentMonthInteger);
     }
   }
+  booksReadData.push(currentMonthInteger);
+  annualReads = booksReadData.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+  charterFunction(booksReadData);
 };
 const getTopics = function () {
-  console.log("Get Topics Invoked");
   fetch(
     `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/book-list.json`
   )
@@ -151,7 +161,6 @@ const breakElement = function () {
 const assignAuthors = function (book) {
   let authorsString = " By " + book.authorFirstName + " " + book.authorLastName;
   if (book.authorsFirstName2 != " ") {
-    console.log(book.authorFirstName + " " + book.authorsFirstName2);
     if (book.authorsFirstName3 == " ") {
       authorsString =
         authorsString +
@@ -159,7 +168,7 @@ const assignAuthors = function (book) {
         book.authorsFirstName2 +
         " " +
         book.authorsLastName2;
-      console.log("Step 1 : " + authorsString);
+
       return authorsString;
     } else {
       authorsString =
@@ -180,7 +189,7 @@ const assignAuthors = function (book) {
       book.authorsFirstName3 +
       " " +
       book.authorsLastName3;
-    console.log("Step 2 : " + authorsString);
+
     return authorsString;
   } else {
     authorsString =
@@ -197,7 +206,6 @@ const assignAuthors = function (book) {
       book.authorsFirstName4 +
       " " +
       book.authorsLastName4;
-    console.log("Step 3 : " + authorsString);
     return authorsString;
   }
   return authorsString;
@@ -284,3 +292,64 @@ function handleGesture(e) {
     console.log("tap");
   }
 }
+
+const charterFunction = function (booksReadData, xaxisCategories) {
+  var options = {
+    series: [
+      {
+        name: "BooksRead",
+        data: booksReadData,
+      },
+    ],
+    chart: {
+      height: 350,
+      type: "line",
+      zoom: {
+        enabled: false,
+      },
+    },
+    colors: ["#545454"],
+    dataLabels: {
+      enabled: true,
+    },
+    stroke: {
+      curve: "straight",
+    },
+    title: {
+      text: "How I read " + annualReads + " books in " + yearOfReading,
+      align: "center",
+      style: {
+        fontFamily: "Inconsolata",
+        fontSize: "16",
+      },
+    },
+    grid: {
+      row: {
+        colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+        opacity: 0.5,
+      },
+    },
+    xaxis: {
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+    },
+    yaxis: {
+      stepSize: 5,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+};
