@@ -28,6 +28,10 @@ let formatPage = function (formatedData) {
     if (yearToBeConsidered == yearOfReading) {
       let currentMonth = element.dateOfReading.substring(5, 7);
       if (currentMonth > prevMonth) {
+        let skippedMonths = parseInt(currentMonth) - parseInt(prevMonth) - 1;
+        for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
+          booksReadData.push(0);
+        }
         breakMonth(currentMonth, bookListElement);
         if (prevMonth != "00") booksReadData.push(currentMonthInteger);
         currentMonthInteger = 0;
@@ -39,6 +43,11 @@ let formatPage = function (formatedData) {
     }
   }
   booksReadData.push(currentMonthInteger);
+  let skippedMonths = 0;
+  if (booksReadData.length < 12) skippedMonths = 12 - booksReadData.length;
+  for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
+    booksReadData.push(0);
+  }
   annualReads = booksReadData.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
