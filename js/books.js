@@ -375,7 +375,7 @@ const charterFunction = function (booksReadData, xaxisCategories) {
       categories: xaxisCategories,
     },
     yaxis: {
-      stepSize: 5,
+      stepSize: 1,
     },
   };
 
