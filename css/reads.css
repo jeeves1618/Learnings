@@ -89,7 +89,7 @@ hr {
   text-align: center;
 }
 
-/********** Large devices only **********/
+/********** Extra Large devices only **********/
 @media (min-width: 1200px) {
   body {
     font-size: 2em;
@@ -121,7 +121,7 @@ hr {
   }
 }
 
-/********** Large devices only **********/
+/********** Medium devices only **********/
 @media (min-width: 576px) and (max-width: 991px) {
   body {
     font-size: 2em;
@@ -135,8 +135,13 @@ hr {
   #month_image {
     width: 4rem;
   }
+
+  #chart {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
-/********** Large devices only **********/
+/********** Small devices only **********/
 @media (min-width: 432px) and (max-width: 575px) {
   body {
     font-size: 1.5em;
@@ -149,5 +154,10 @@ hr {
 
   #month_image {
     width: 3rem;
+  }
+
+  #chart {
+    margin-left: 2%;
+    margin-right: 2%;
   }
 }
