@@ -51,7 +51,39 @@ let formatPage = function (formatedData) {
   annualReads = booksReadData.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
-  charterFunction(booksReadData);
+  let xaxisCategories = [];
+  xaxisCategories = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  var x = window.matchMedia("(max-width: 575px)");
+  if (x.matches) {
+    xaxisCategories = [
+      "J",
+      "F",
+      "M",
+      "A",
+      "M",
+      "J",
+      "J",
+      "A",
+      "S",
+      "O",
+      "N",
+      "D",
+    ];
+  }
+  charterFunction(booksReadData, xaxisCategories);
 };
 const getTopics = function () {
   fetch(
@@ -326,11 +358,7 @@ const charterFunction = function (booksReadData, xaxisCategories) {
     },
     title: {
       text:
-        "My journey through " +
-        annualReads +
-        " books in " +
-        yearOfReading +
-        "...",
+        "My tryst with " + annualReads + " books in " + yearOfReading + "...",
       align: "center",
       style: {
         fontFamily: "Inconsolata",
@@ -344,20 +372,7 @@ const charterFunction = function (booksReadData, xaxisCategories) {
       },
     },
     xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: xaxisCategories,
     },
     yaxis: {
       stepSize: 5,
