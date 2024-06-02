@@ -9,7 +9,6 @@ let yearOfReading = searchParams.get("year");
 const currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 if (yearOfReading == null) yearOfReading = currentYear;
-console.log(yearOfReading);
 
 let booksReadData = [];
 let xaxisCategories = [];
@@ -39,7 +38,6 @@ let formatPage = function (formatedData) {
       }
       addBookToPage(element, bookListElement);
       currentMonthInteger = currentMonthInteger + 1;
-      console.log(element.bookTitle + " " + currentMonthInteger);
     }
   }
   booksReadData.push(currentMonthInteger);
@@ -83,6 +81,39 @@ let formatPage = function (formatedData) {
       "D",
     ];
   }
+  x.addEventListener("change", function () {
+    if (x.matches) {
+      xaxisCategories = [
+        "J",
+        "F",
+        "M",
+        "A",
+        "M",
+        "J",
+        "J",
+        "A",
+        "S",
+        "O",
+        "N",
+        "D",
+      ];
+    } else {
+      xaxisCategories = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+    }
+  });
   charterFunction(booksReadData, xaxisCategories);
 };
 const getTopics = function () {
@@ -139,6 +170,13 @@ const addBookToPage = function (element, bookListElement) {
   let bookNameElement = document.createElement("strong");
   bookNameElement.textContent = element.bookTitle;
   orderedListElement.append(bookNameElement);
+  if (element.allTimeGreatIndicator === "Yes") {
+    console.log("Yes, " + element.bookTitle + " is all time great");
+    let allTimeGreatTextElement = document.createElement("sup");
+    allTimeGreatTextElement.className = "highlight-sup";
+    allTimeGreatTextElement.textContent = "Must Read!";
+    orderedListElement.append(allTimeGreatTextElement);
+  }
   let authorNameElement = document.createElement("em");
   authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);

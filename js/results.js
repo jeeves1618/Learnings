@@ -16,6 +16,9 @@ if (searchToken.toUpperCase().includes("ACCOUNTING")) searchToken = "Finance";
 if (searchToken.toUpperCase().includes("STOCK")) searchToken = "Finance";
 if (searchToken.toUpperCase().includes("EQUIT")) searchToken = "Finance";
 if (searchToken.toUpperCase().includes("MARKETS")) searchToken = "ECONOMICS";
+if (searchToken.toUpperCase().includes("MUST READS"))
+  searchToken = "MUST-READS";
+if (searchToken.toUpperCase().includes("MUST READ")) searchToken = "MUST-READS";
 const titleElement = document.querySelector("title");
 titleElement.textContent = "Search Results";
 
@@ -100,6 +103,12 @@ let formatPage = function (formatedData) {
 
 const searchEngine = function (element, searchToken, bookListElement) {
   let countOfBooksSelected = 0;
+  if (searchToken === "MUST-READS") {
+    if (element.allTimeGreatIndicator.toUpperCase().includes("YES")) {
+      addBookToPage(element, bookListElement);
+      countOfBooksSelected++;
+    }
+  }
   if (element.bookGenre.toUpperCase().includes(searchToken)) {
     addBookToPage(element, bookListElement);
     countOfBooksSelected++;
@@ -126,6 +135,13 @@ const addBookToPage = function (element, bookListElement) {
   let bookNameElement = document.createElement("strong");
   bookNameElement.textContent = element.bookTitle;
   orderedListElement.append(bookNameElement);
+  if (element.allTimeGreatIndicator === "Yes") {
+    console.log("Yes, " + element.bookTitle + " is all time great");
+    let allTimeGreatTextElement = document.createElement("sup");
+    allTimeGreatTextElement.className = "highlight-sup";
+    allTimeGreatTextElement.textContent = "Must Read!";
+    orderedListElement.append(allTimeGreatTextElement);
+  }
   let authorNameElement = document.createElement("em");
   authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);

@@ -89,6 +89,15 @@ hr {
   text-align: center;
 }
 
+.highlight-sup {
+  vertical-align: super;
+  color: white;
+  background-color: rgb(22, 99, 6);
+  padding: 5px 5px;
+  border-radius: 50%; /* Making it oval */
+  font-size: 0.75em; /* Same size as main text */
+}
+
 /********** Extra Large devices only **********/
 @media (min-width: 1200px) {
   body {
