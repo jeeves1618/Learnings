@@ -134,7 +134,7 @@ const addBookToPage = function (element, bookListElement) {
   linkElement.append(orderedListElement);
   let bookNameElement = document.createElement("strong");
   bookNameElement.textContent = element.bookTitle;
-  orderedListElement.append(bookNameElement);
+
   if (element.allTimeGreatIndicator === "Yes") {
     console.log("Yes, " + element.bookTitle + " is all time great");
     let allTimeGreatTextElement = document.createElement("sup");
@@ -142,6 +142,7 @@ const addBookToPage = function (element, bookListElement) {
     allTimeGreatTextElement.textContent = "Must Read!";
     orderedListElement.append(allTimeGreatTextElement);
   }
+  orderedListElement.append(bookNameElement);
   let authorNameElement = document.createElement("em");
   authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);
