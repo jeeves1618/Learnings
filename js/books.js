@@ -16,7 +16,12 @@ const mainHeaderElement = document.getElementById("main-header-year");
 mainHeaderElement.textContent = "My " + yearOfReading + " Reads";
 const titleElement = document.querySelector("title");
 titleElement.textContent = "My " + yearOfReading + " Reads";
-
+var x = window.matchMedia("(max-width: 575px)");
+/*
+x.addEventListener("change", function () {
+  getTopics();
+});
+*/
 let formatPage = function (formatedData) {
   let prevMonth = "00";
   let currentMonthInteger = 0;
@@ -64,7 +69,6 @@ let formatPage = function (formatedData) {
     "Nov",
     "Dec",
   ];
-  var x = window.matchMedia("(max-width: 575px)");
   if (x.matches) {
     xaxisCategories = [
       "J",
@@ -81,39 +85,6 @@ let formatPage = function (formatedData) {
       "D",
     ];
   }
-  x.addEventListener("change", function () {
-    if (x.matches) {
-      xaxisCategories = [
-        "J",
-        "F",
-        "M",
-        "A",
-        "M",
-        "J",
-        "J",
-        "A",
-        "S",
-        "O",
-        "N",
-        "D",
-      ];
-    } else {
-      xaxisCategories = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-    }
-  });
   charterFunction(booksReadData, xaxisCategories);
 };
 const getTopics = function () {
@@ -160,23 +131,28 @@ const filterByYear = function (book) {
 
 const addBookToPage = function (element, bookListElement) {
   //const bookListElement = document.getElementById("book-list");
-
+  //http://127.0.0.1:5501/results.html?token=Must%20Reads
   let linkElement = document.createElement("a");
   linkElement.href = element.shoppingUrl;
   linkElement.target = "_blank";
-  bookListElement.append(linkElement);
+  //bookListElement.append(linkElement);
   let orderedListElement = document.createElement("li");
-  linkElement.append(orderedListElement);
+  bookListElement.append(orderedListElement);
+  //linkElement.append(orderedListElement);
   let bookNameElement = document.createElement("strong");
   bookNameElement.textContent = element.bookTitle;
   if (element.allTimeGreatIndicator === "Yes") {
+    let allTimelinkElement = document.createElement("a");
+    allTimelinkElement.href = "/Learnings/results.html?token=Must%20Reads";
+    orderedListElement.append(allTimelinkElement);
     console.log("Yes, " + element.bookTitle + " is all time great");
     let allTimeGreatTextElement = document.createElement("sup");
     allTimeGreatTextElement.className = "highlight-sup";
     allTimeGreatTextElement.textContent = "Must Read!";
-    orderedListElement.append(allTimeGreatTextElement);
+    allTimelinkElement.append(allTimeGreatTextElement);
   }
-  orderedListElement.append(bookNameElement);
+  orderedListElement.append(linkElement);
+  linkElement.append(bookNameElement);
   let authorNameElement = document.createElement("em");
   authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);

@@ -20,7 +20,11 @@ if (searchToken.toUpperCase().includes("MUST READS"))
   searchToken = "MUST-READS";
 if (searchToken.toUpperCase().includes("MUST READ")) searchToken = "MUST-READS";
 const titleElement = document.querySelector("title");
-titleElement.textContent = "Search Results";
+const headerOneElement = document.querySelector("h1");
+if (searchToken === "MUST-READS") {
+  titleElement.textContent = "Your Must Reads!";
+  headerOneElement.textContent = "Your Must Reads!";
+} else titleElement.textContent = "Search Results";
 
 const lineSeperator = function () {
   bodyElement.append(document.createElement("hr"));
@@ -129,20 +133,24 @@ const addBookToPage = function (element, bookListElement) {
   let linkElement = document.createElement("a");
   linkElement.href = element.shoppingUrl;
   linkElement.target = "_blank";
-  bookListElement.append(linkElement);
+  //bookListElement.append(linkElement);
   let orderedListElement = document.createElement("li");
-  linkElement.append(orderedListElement);
+  bookListElement.append(orderedListElement);
+  //linkElement.append(orderedListElement);
   let bookNameElement = document.createElement("strong");
   bookNameElement.textContent = element.bookTitle;
-
   if (element.allTimeGreatIndicator === "Yes") {
+    let allTimelinkElement = document.createElement("a");
+    allTimelinkElement.href = "/Learnings/results.html?token=Must%20Reads";
+    orderedListElement.append(allTimelinkElement);
     console.log("Yes, " + element.bookTitle + " is all time great");
     let allTimeGreatTextElement = document.createElement("sup");
     allTimeGreatTextElement.className = "highlight-sup";
     allTimeGreatTextElement.textContent = "Must Read!";
-    orderedListElement.append(allTimeGreatTextElement);
+    allTimelinkElement.append(allTimeGreatTextElement);
   }
-  orderedListElement.append(bookNameElement);
+  orderedListElement.append(linkElement);
+  linkElement.append(bookNameElement);
   let authorNameElement = document.createElement("em");
   authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);
