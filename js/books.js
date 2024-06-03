@@ -153,6 +153,16 @@ const addBookToPage = function (element, bookListElement) {
   }
   orderedListElement.append(linkElement);
   linkElement.append(bookNameElement);
+  orderedListElement.append("  ");
+  if (element.readingNotesUrl != null && element.readingNotesUrl > " ") {
+    let notesLinkElement = document.createElement("a");
+    notesLinkElement.href = element.readingNotesUrl;
+    notesLinkElement.target = "_blank";
+    let notesElement = document.createElement("span");
+    notesElement.className = "glyphicon glyphicon-comment glyphicon-color";
+    orderedListElement.append(notesLinkElement);
+    notesLinkElement.append(notesElement);
+  }
   let authorNameElement = document.createElement("em");
   authorNameElement.textContent = assignAuthors(element);
   orderedListElement.append(authorNameElement);
