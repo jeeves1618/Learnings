@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alignment Problem</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        margin: 2rem;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      strong {
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px 12px;
+      }
+      th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      td:nth-child(2) {
+        text-align: right;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+      }
+      h1 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      section {
+        margin-bottom: 20px;
+      }
+      .section-title {
+        color: #000;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+
+        padding-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Alignment Problem Notes</h1>
+
+    <section>
+      <h2 class="section-title">Formal Logic: Proof of 1+1=2</h2>
+      <p>In formal logic, page 397 offers a proof that 1+1=2.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">
+        Neural Networks: Foundations and Developments
+      </h2>
+      <p>
+        Walter Pitts (a young logician) and Warren McCulloch (a neurologist)
+        discovered that a neuron with a low threshold that fires if any of its
+        inputs do operates like a logical "OR" gate. Conversely, a neuron with a
+        high threshold that fires only if all its inputs do functions as a
+        logical "AND" gate. Although the brain is far more complex than their
+        model, this insight laid the groundwork for neural networks.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">
+        Perceptron: The Blueprint of Machine Learning
+      </h2>
+      <p>
+        Frank Rosenblatt of Cornell Aeronautical Laboratory created the
+        Perceptron, a foundational model for machine learning systems. The
+        Perceptron consists of a single artificial neuron with 400 inputs, each
+        weighted differently, producing an all-or-nothing output. While capable
+        of basic tasks like identifying the position of a square on a card, the
+        Perceptron cannot handle more complex categories, necessitating
+        multi-layered networks. It is impossible to train a perceptron to
+        recognize whether a grid has an odd or even number of squares. To handle
+        more complex categories like this, a neural network with multiple layers
+        is required. Each layer processes and transforms the raw data, enabling
+        the final layers to interpret and recognize intricate patterns and
+        representations. However, tuning the parameters of these layers remained
+        a challenge for many years.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">CPU vs. GPU in Computation</h2>
+      <p>
+        A CPU executes instructions sequentially with high precision, whereas a
+        GPU can perform numerous simple and sometimes approximate calculations
+        simultaneously.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Neuronal Functions</h2>
+      <p>
+        Neurons receive inputs via dendrites and send outputs through axons. A
+        low-threshold neuron that fires when any dendrite is activated acts as
+        an "OR" neuron, while a high-threshold neuron that fires only when all
+        dendrites are activated functions as an "AND" neuron.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Optimization in Machine Learning</h2>
+      <p>
+        Stochastic gradient descent (SGD) is a prevalent optimization algorithm
+        in machine learning, used to find model parameters that best fit
+        predicted and actual outputs. Despite being inexact, SGD is powerful and
+        widely utilized.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Evolution of Neural Networks</h2>
+      <p>
+        The Perceptron was an early shallow neural network. In 2012, AlexNet
+        introduced deep neural networks, revolutionizing the field.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Bias in Machine Learning</h2>
+      <p>
+        The COMPAS system was accurate 61% of the time in predicting parolee
+        behavior, a consistency seen across different groups. Differential
+        privacy aims to collect data without compromising individual privacy.
+        Redundant encoding occurs when omitting variables like gender or race is
+        insufficient due to their correlation with other factors, necessitating
+        careful handling to avoid bias.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Model Intelligibility vs. Accuracy</h2>
+      <p>
+        Typically, the most powerful models are less intelligible, whereas the
+        most intelligible models tend to be less accurate.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">System Types: Homeostasis and Heterostasis</h2>
+      <p>
+        Homeostatic systems, like thermostats, strive for equilibrium.
+        Heterostatic systems, such as neurons and humans, aim to maximize their
+        state.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Human Expertise and Linear Models</h2>
+      <p>
+        Simple linear models often outperform experts in predictions. Human
+        expertise lies in knowing what to look for, not necessarily integrating
+        information optimally.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">
+        Starting with a static and Testing with Concept Activation Vector (TCAV)
+      </h2>
+      <p>
+        Starting with a static image, a deconvolution technique can be used to
+        analyze the output of a convolutional neural network, creating multiple
+        variations from its learned features. For instance, if we start with
+        random static and fine-tune hundreds of images to maximize the network's
+        output for faces, and the resulting faces are predominantly white and
+        male, it indicates a bias in the network. This suggests that the network
+        may not recognize other types of faces as effectively. Testing with
+        Concept Activation Vectors (TCAV) provides a method to use human-defined
+        concepts to interpret and understand the internal workings of a neural
+        network.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Edward Thorndike's law of effect:</h2>
+      <p>
+        A modifiable connection between a situation and a response is made, and
+        is accompanied or followed by a satisfying state of affairs. That
+        connections strength is increased.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Reinforcement Learning</h2>
+      <p>
+        In reinforcement learning, when rewards are commensurate, fungible, and
+        of a common currency, they are referred to as scalar rewards.
+        Essentially, the goals and purposes in reinforcement learning revolve
+        around maximizing the cumulative sum of these scalar rewards. Unlike
+        supervised and unsupervised learning, reinforcement learning requires
+        making decisions that impact future choices. Each decision sets the
+        context for the next, potentially altering it permanently. The temporal
+        difference learning model has shown that dopamine functions not as a
+        currency of reward, but rather as an indicator of the error in the
+        brain's expectation of future rewards. Elevated levels of dopamine
+        signal that outcomes are better than anticipated.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">
+        Policies and Value Functions in Reinforcement Learning
+      </h2>
+      <p>
+        The two dimensions in reinforcement learning are the policy (actions to
+        take) and the value function (expected rewards).
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Reward Maximizer</h2>
+      <p>
+        A reinforcement learning agent is a reward maximizer, operating under a
+        heterostatic system. Supervised learning is akin to working with a
+        teacher who provides guidance and corrects your mistakes. In contrast,
+        reinforcement learning is more like working with a critic who may be
+        knowledgeable but offers less direct help.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Intrinsic vs. Extrinsic Motivation</h2>
+      <p>
+        Some agents may act out of intrinsic curiosity rather than extrinsic
+        rewards, crossing a road not for a reward but simply out of curiosity.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Human Imitation and Learning</h2>
+      <p>
+        Humans are exceptional imitators, often over-imitating compared to
+        chimpanzees. This over-imitation may indicate a sophisticated
+        understanding that there are reasons behind observed actions, even if
+        not immediately apparent.
+      </p>
+    </section>
+    <section>
+      <h2 class="section-title">Project Pigeon</h2>
+      <p>
+        Viewing free will as an illusion, B.F. Skinner posited that human
+        behavior is shaped by the consequences of prior actions, a concept he
+        described as the principle of reinforcement. One of his notable
+        experiments, Project Pigeon (later renamed Project Orcon for "organic
+        control"), involved developing a guided bomb controlled by trained
+        pigeons, showcasing his theories in a practical application.
+      </p>
+    </section>
+    <section>
+      <h2 class="section-title">Epsilon Greedy, Dense Vs Sparse Rewards</h2>
+      <p>
+        Reinforcement learning is the study of learning through trial and error,
+        with one of the simplest algorithms being epsilon-greedy. An agent using
+        the epsilon-greedy algorithm predominantly selects actions that it
+        believes will yield the highest total reward based on past experiences.
+        However, it occasionally chooses actions at random to explore new
+        possibilities. Rewards in reinforcement learning can be dense or sparse.
+        For example, a video game that awards points frequently represents a
+        densely rewarding environment, whereas tasks like learning to play chess
+        or mastering a programming language provide rewards less frequently,
+        making them sparsely rewarding environments.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Possibleism vs. Actualism</h2>
+      <p>
+        Possibleism advocates doing the best possible thing in every situation,
+        regardless of current constraints. Actualism, in contrast, emphasizes
+        doing the best thing given the present circumstances and anticipating
+        future outcomes. For instance, a procrastinator facing a task would
+        adhere to possibleism by accepting it because it's technically feasible
+        to complete. However, actualism would caution against taking on the task
+        due to the risk that procrastination might prevent its timely
+        completion. In machine learning, this debate translates into a
+        discussion about how to value future rewards: should they reflect the
+        maximum potential reward achievable by taking an action, or should they
+        account for the realistic reward considering the agent's actual ability
+        to execute that action?
+      </p>
+    </section>
+    <section>
+      <h2 class="section-title">Shaping</h2>
+      <p>
+        The key insight of shaping is, to get complex behavior, we may first
+        need to strategically reward, simpler behavior.
+      </p>
+    </section>
+    <section>
+      <h2 class="section-title">Evolution</h2>
+      <p>
+        Consuming as much sugar and fat as possible is optimal only when these
+        resources are scarce and difficult to obtain. However, once this dynamic
+        shifts and these resources become abundant and easily accessible, the
+        reward function that benefited your ancestors for tens of thousands of
+        years can suddenly become detrimental, leading to unhealthy behaviors.
+        We optimize our behavior to maximize the things we find rewarding, but
+        in the background, and at a larger scale, evolution is shaping the
+        things we find rewarding in the first place.
+      </p>
+    </section>
+    <section>
+      <h2 class="section-title">Intrinsic Rewards</h2>
+      <p>
+        At times, instead of relying on complex systems of rewards and
+        punishments, the solution lies in developing agents that are
+        intrinsically motivated. Such agents may cross a road not for the reward
+        but out of pure curiosity, driven by internal desires rather than
+        external incentives. For a knowledge-seeking agent, the concept of
+        self-deception is irrelevant. Their motivation stems purely from the
+        pursuit of knowledge, devoid of any interest in misleading themselves.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Imitation</h2>
+      <p>
+        Human beings are renowned for their ability to imitate, surpassing even
+        our closest relatives, the chimpanzees. Human children often imitate
+        actions even when there is no immediate reason to do so, unlike
+        chimpanzees who do not exhibit this behavior. However, human children's
+        tendency to overimitate serves a purpose. In experiments like the
+        transparent box test, children consistently open a top compartment, even
+        when no cookie is present there, before checking the bottom compartment
+        containing cookies. In contrast, chimpanzees directly access the bottom
+        compartment. This difference suggests that chimpanzees follow a simpler
+        logic of directly accessing the visible food source. Human children, on
+        the other hand, demonstrate a more complex reasoning process: they
+        consider the possibility that others should be doing it for a reason,
+        leading them to open the top compartment first despite knowing the
+        cookies are at the bottom.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Dropout in Neural Networks</h2>
+      <p>
+        To manage uncertainty and improve robustness, dropout involves turning
+        off parts of a neural network during training, simulating multiple
+        networks with a single one.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Human vs. Neural Network Knowledge</h2>
+      <p>
+        Humans excel at recognizing their knowledge gaps, a capacity still
+        lacking in neural networks. That is, the human capacity to know when and
+        what we don’t know is missing in neural networks.
+      </p>
+    </section>
+  </body>
+</html>

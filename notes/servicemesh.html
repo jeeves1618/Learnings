@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Mesh</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        margin: 2rem;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      strong {
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px 12px;
+      }
+      th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      td:nth-child(2) {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Service Mesh</h1>
+    <hr />
+    <div class="lb-col lb-tiny-24 lb-mid-24">
+      <h2
+        class="lb-txt-bold lb-txt-none lb-txt-28 lb-h2 lb-title"
+        id="seo-faq-pairs#how-does-a-service-mesh-work"
+      >
+        How does a service mesh work?
+      </h2>
+      <div class="lb-txt-14 lb-rtxt">
+        <p>
+          A service mesh removes the logic governing service-to-service
+          communication from individual services and abstracts communication to
+          its own infrastructure layer. It uses several network proxies to route
+          and track communication between services.
+        </p>
+        <p>
+          A proxy acts as an intermediary gateway between your organization’s
+          network and the microservice. All traffic to and from the service is
+          routed through the proxy server. Individual proxies are sometimes
+          called <em>sidecars</em>, because they run separately but are
+          logically next to each service. Taken together, the proxies form the
+          service mesh layer.&nbsp;
+        </p>
+        <p>
+          &nbsp;<img
+            src="https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2018/11/28/appmesh-proxy-1024x341.png"
+          />
+        </p>
+        <p>
+          There are two main components in service mesh architecture—the control
+          plane and the data plane.
+        </p>
+        <h3><strong>Data plane</strong></h3>
+        <p>
+          The data plane is the data handling component of a service mesh. It
+          includes all the sidecar proxies and their functions. When a service
+          wants to communicate with another service, the sidecar proxy takes
+          these actions:
+        </p>
+        <ol>
+          <li>The sidecar intercepts the request</li>
+          <li>It encapsulates the request in a separate network connection</li>
+          <li>
+            It establishes a secure and encrypted channel between the source and
+            destination proxies
+          </li>
+        </ol>
+        <p>
+          The sidecar proxies handle low-level messaging between services. They
+          also implement features, like circuit breaking and request retries, to
+          enhance resiliency and prevent service degradation. Service mesh
+          functionality—like load balancing, service discovery, and traffic
+          routing—is implemented in the data plane.
+        </p>
+        <h3><strong>Control plane</strong></h3>
+        <p>
+          The control plane acts as the central management and configuration
+          layer of the service mesh.
+        </p>
+        <p>
+          With the control plane, administrators can define and configure the
+          services within the mesh. For example, they can specify parameters
+          like service endpoints, routing rules, load balancing policies, and
+          security settings. Once the configuration is defined, the control
+          plane distributes the necessary information to the service mesh's data
+          plane.
+        </p>
+        <p>
+          The proxies use the configuration information to decide how to handle
+          incoming requests. They can also receive configuration changes and
+          adapt their behavior dynamically. You can make real-time changes to
+          the service mesh configuration without service restarts or
+          disruptions.
+        </p>
+        <p>
+          Service mesh implementations typically include the following
+          capabilities in the control plane:
+        </p>
+        <ul>
+          <li>
+            Service registry that keeps track of all services within the mesh
+          </li>
+          <li>
+            Automatic discovery of new services and removal of inactive services
+          </li>
+          <li>
+            Collection and aggregation of telemetry data like metrics, logs, and
+            distributed tracing information
+          </li>
+        </ul>
+        <p>
+          &nbsp;<img
+            src="https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2019/06/07/Graph2-1024x557.png"
+          />
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
