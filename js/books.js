@@ -45,6 +45,7 @@ let formatPage = function (formatedData) {
       currentMonthInteger = currentMonthInteger + 1;
     }
   }
+
   booksReadData.push(currentMonthInteger);
   let skippedMonths = 0;
   if (booksReadData.length < 12) skippedMonths = 12 - booksReadData.length;

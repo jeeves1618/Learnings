@@ -1,211 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width initial-scale=1" />
-    <title>40 Hours!</title>
-    <!-- CSS only -->
-    <!-- Latest compiled and minified CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Resources</title>
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oxygen&family=Pacifico&display=swap"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Libre+Bodoni&family=Lora&family=Mukta&family=Oxygen&family=Source+Serif+Pro&family=Tiro+Kannada&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" src="js/roadmap.js"></script>
+    <style>
+      .section-header {
+        background-color: #d5e0eb;
+        padding: 10px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      .section-description {
+        background-color: #f1f1f1;
+        padding: 2rem;
+        margin-top: 0;
+        text-align: justify;
+      }
+      .section-image {
+        background-color: #f1f1f1;
+        padding: 10px;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        line-height: 130%;
+      }
+      .img-custom {
+        width: 12rem;
+        height: 16rem;
+        object-fit: fill; /* Ensures images cover the area without distortion */
+      }
+      .mb-5 {
+        margin-bottom: 0rem !important;
+      }
+      .text-center {
+        margin-bottom: 1rem !important;
+      }
+      .panel-footer {
+        background-color: #d5e0eb;
+        margin-top: 2%;
+      }
+      .panel-footer span {
+        font-weight: bolder;
+        font-size: large;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <nav id="header-nav" class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
-            <!--pull left is bootstrap way of saying float left. visible-md and visible-lg will ensure that the impage is visible only when the screen is not small-->
-            <a
-              href="index.html"
-              class="pull-left visible-md visible-lg visible-sm visible-xs"
-            >
-              <div id="logo-img" alt="Logo image"></div>
-            </a>
-            <div class="navbar-brand" id="nvbr01">
-              <a
-                href="index.html"
-                class="pull-left visible-md visible-lg visible-xs visible-sm"
-                ><h1>40 Hours Challenge!</h1></a
-              >
-              <p>
-                <!--<img src="img/x.jpg" alt="sub text" />-->
-              </p>
-            </div>
-            <!--data-target="#collapsable-nav" points to the element with that ID-->
-            <button
-              type="button"
-              class="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#collapsable-nav"
-              aria-expanded="false"
-            >
-              <!--sr only is for screen reader-->
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
+    <div class="container mt-5">
+      <h1 class="text-center mb-5">Learning Resources</h1>
 
-          <div id="collapsable-nav" class="collapse navbar-collapse">
-            <!--nav navbar-nav ensures that the elements are part of nav bar. navbar-right aligns to the right-->
-            <ul id="nav-list" class="nav navbar-nav navbar-right">
-              <li>
-                <a href="topics.html">
-                  <!--Glyficons are part of bootstrap https://getbootstrap.com/docs/3.4/components/#glyphicons-->
-                  <span
-                    class="glyphicon glyphicon glyphicon-folder-open"
-                  ></span>
-                  <!--THe class hidden-xs will hide the break element at xs size-->
-                  <br class="hidden-xs" />
-                  Topics</a
-                >
-              </li>
-              <li>
-                <a href="about.html">
-                  <span class="glyphicon glyphicon-info-sign"></span
-                  ><br class="hidden-xs" />
-                  About</a
-                >
-              </li>
-              <li class="active">
-                <a href="roadmap.html">
-                  <span
-                    id="nav-no-of-items-cart"
-                    class="glyphicon glyphicon glyphicon-road"
-                  ></span
-                  ><br class="hidden-xs" />
-                  Roadmap</a
-                >
-              </li>
-              <li id="phone" class="hidden-xs hidden-sm">
-                <a href="mailto:learn@aol.com"> <span>learn@aol.com</span></a>
-                <div>Reach out to us</div>
-              </li>
-            </ul>
-            <!-- #nav-list -->
-          </div>
-          <!-- .collapse .navbar-collapse -->
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>1. Java Free Book</h2>
         </div>
-      </nav>
-    </header>
-    <div id="complete-body-under-nav"></div>
-    <div id="call-btn" class="visible-xs visible-sm visible-md">
-      <a class="btn" href="mailto:learn@aol.com"
-        ><span class="glyphicon glyphicon-earphone">learn@aol.com</a
-      >
-    </div>
-    <div id="xs-deliver" class="text-center visible-xs visible-sm visible-md">
-      Reach out to us
-    </div>
-
-    <h2 id="cart-title" class="text-center"></h2>
-    <hr class="visible-xs visible-md visible-lg" />
-    <!--Iteration of order items begins -->
-    <section id="dorders" class="row"></section>
-    <div id="place-order-division">
-      <a id="cart-button-link" href="success.html">
-        <button
-          id="cart-button-title"
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#myModal"
-          onclick="clearCache();"
-        ></button>
-      </a>
-    </div>
-
-    <!-- Modal Begins--
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            <p>One fine body&hellip;</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-        
       </div>
-      
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img src="/img/LR01.jpg" alt="Think Java" class="img-custom" />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            <a
+              href="https://greenteapress.com/wp/think-java-2e/"
+              target="_blank"
+              >This introductory book</a
+            >
+            on Java provides a solid foundation for beginners. It is available
+            for
+            <a
+              href="https://greenteapress.com/thinkjava7/thinkjava2.pdf"
+              target="_blank"
+              >free under the Creative Commons International License</a
+            >
+            , allowing readers to freely access, copy, and distribute the
+            content. While the book covers fundamental concepts effectively, it
+            primarily focuses on the basics. For a deeper understanding of
+            advanced Java topics, I encourage you to scroll down for additional
+            resources and further study.
+          </p>
+          <p>
+            Downey is well-regarded for his accessible and practical textbooks,
+            including "Think Python" and "Think Stats". His work often
+            integrates real-world data and encourages readers to apply concepts
+            to solve actual problems, reflecting his belief in learning by
+            doing.
+          </p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>2. Java Complete Reference</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img
+            src="/img/LR02.jpg"
+            alt="Complete Reference"
+            class="img-custom"
+          />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            "The Java Complete Reference" is a comprehensive guide to Java
+            programming, authored by Herbert Schildt. It covers the core
+            concepts of the Java language, including its syntax, APIs, and
+            advanced features. The book serves as both an introductory text and
+            a detailed reference, suitable for beginners and experienced
+            programmers alike. It also includes practical examples and exercises
+            to help readers apply their knowledge effectively. If you are not
+            into books, scroll down.
+          </p>
+          <p>
+            Don't be alarmed at the size of the book. Several topics are less
+            relevant for developers focusing on Spring Boot because Spring Boot
+            abstracts and manages many of those concerns. They are Low-Level
+            JDBC and SQL Management, Manual Dependency Injection, XML
+            Configuration, Servlet API and Manual Web Application Setup and
+            Manual Bean Lifecycle Management
+          </p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>3. Java Master Class</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img src="/img/LR03.jpg" alt="Java Masterclass" class="img-custom" />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            <a
+              href="https://www.udemy.com/course/java-the-complete-java-developer-course/"
+              target="_blank"
+              >The "Java Masterclass" course on Udemy </a
+            >offers an in-depth exploration of Java programming. It also covers
+            a wide range of topics, from basic syntax and object-oriented
+            principles to advanced features such as multithreading and
+            networking. The course includes practical exercises, real-world
+            projects, and comprehensive explanations to build and enhance Java
+            skills. It's designed for both beginners and experienced developers
+            looking to deepen their understanding of Java.
+          </p>
+          <p>
+            Don't be scared of the 100+ hours. Most of those hours are for prior
+            versions of Java. Many students who have taken Tim Buchalka's Java
+            Master Class, have transitioned from non-technical backgrounds into
+            software development roles, thanks to the comprehensive and
+            practical nature of the course. Some have reported landing jobs as
+            Java developers, while others have leveraged their new skills to
+            contribute to open-source projects or develop their own
+            applications.
+          </p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>4. Core Java</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img
+            src="/img/LR04.jpg"
+            alt="Complete Reference"
+            class="img-custom"
+          />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            If you’re eager to further deepen your Java knowledge or seeking an
+            alternative to "The Complete Reference," consider "Core Java" by Cay
+            Horstmann. This book offers a detailed, hands-on approach to Java
+            programming, featuring practical examples and a strong focus on
+            real-world applications. It explores advanced topics and provides an
+            in-depth look at Java’s core libraries and APIs.
+          </p>
+          <p>
+            In contrast, "The Java Complete Reference" by Herbert Schildt offers
+            a broader, more encyclopedic overview of the Java language and
+            standard libraries, making it a versatile resource for both
+            beginners and experienced developers. Also, Volume 1 is sufficient
+            for most of our use cases. Volume 2 of "Core Java" delves into
+            advanced topics such as Java’s concurrency, networking, and GUI
+            development, which may not be essential for many Java developers
+            focused on web or enterprise applications.
+          </p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>5. Pro Git Book</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img
+            src="/img/LR05.jpg"
+            alt="Complete Reference"
+            class="img-custom"
+          />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            "Pro Git," authored by Scott Chacon and Ben Straub, is a
+            comprehensive guide to Git, the popular version control system, and
+            is available for free under a Creative Commons license. The book
+            covers a wide range of topics, from basic commands to advanced
+            features like branching, merging, and repository management.
+            Mastering Git is essential for developers as it facilitates
+            efficient code management, enhances collaboration, and maintains a
+            detailed history of project development. By reading "Pro Git,"
+            developers gain the skills needed to leverage Git effectively and
+            address common version control challenges.
+          </p>
+          <p>I would recommend reading the first five chapters.</p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>6. Spring Boot - Chad</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img
+            src="/img/LR06.jpg"
+            alt="Complete Reference"
+            class="img-custom"
+          />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            <a
+              href="https://www.udemy.com/course/spring-hibernate-tutorial/"
+              target="_blank"
+            >
+              Darby's Spring Boot course on Udemy</a
+            >
+            provides a practical, hands-on approach to learning Spring Boot,
+            focusing on building real-world applications with a clear,
+            step-by-step methodology. It emphasizes essential concepts,
+            project-based learning, and practical exercises. Chad Darby is known
+            for his engaging and practical teaching style on Udemy, particularly
+            in courses focused on Spring Boot and Java. He often uses hands-on
+            projects and practical examples to help learners grasp complex
+            concepts and apply them effectively
+          </p>
+          <p>
+            In comparison, Madan Reddy's "Master Spring 6 & Spring Boot 3"
+            course offers a comprehensive exploration of both Spring 6 and
+            Spring Boot 3, targeting the latest features and best practices.
+            This course includes extensive coverage of advanced topics and new
+            updates, providing a more detailed and current perspective on Spring
+            technologies. Both courses aim to equip developers with robust
+            Spring Boot skills, but Reddy's course delves deeper into the
+            concepts and under the hood details.
+          </p>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-12 section-header">
+          <h2>7. Spring Boot - Madan Reddy</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 section-image">
+          <img
+            src="/img/LR07.jpg"
+            alt="Complete Reference"
+            class="img-custom"
+          />
+        </div>
+        <div class="col-md-9 section-description">
+          <p>
+            <a
+              href="https://www.udemy.com/course/spring-springboot-jpa-hibernate-zero-to-master/"
+              target="_blank"
+              >Madan Reddy's "Master Spring 6 & Spring Boot 3"</a
+            >
+            course on Udemy offers an extensive exploration of the latest
+            features and best practices in both Spring 6 and Spring Boot 3. It
+            covers advanced topics, including modern Spring features, security,
+            microservices, and reactive programming, providing a deep dive into
+            the newest advancements in the Spring ecosystem. The course is
+            designed for those who want to master the latest versions and
+            leverage their capabilities in complex, real-world applications.
+          </p>
+          <p>
+            In comparison, Chad Derby's Spring Boot course focuses on practical,
+            hands-on learning of Spring Boot fundamentals, with an emphasis on
+            building real-world applications. While Derby's course provides a
+            solid foundation and practical examples, it may not cover the latest
+            updates and advanced features in as much detail as Reddy's course.
+            Reddy's course is more suitable for developers looking to explore
+            more on the "whys" of Spring and Spring Boot.
+          </p>
+        </div>
+      </div>
     </div>
-    
-    Modal Ends -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- End of #Main Content -->
     <footer class="panel-footer">
       <div class="container">
         <div class="row">
-          <section id="hours" class="col-sm-4">
+          <section id="footer" class="col-sm-4">
             <span>Work on your conversations!</span><br />
             https://www.econtalk.org/<br />
             https://seenunseen.in/<br />
             https://lexfridman.com/podcast/<br />
             <hr class="visible-xs" />
           </section>
-          <section id="address" class="col-sm-4">
+          <section id="footer" class="col-sm-4">
             <span>Get your questions answered!</span><br />
             https://stackoverflow.com/ <br />https://www.baeldung.com/
             https://www.geeksforgeeks.org/
-            
+
             <hr class="visible-xs" />
           </section>
-          <section id="address" class="col-sm-4">
+          <section id="footer" class="col-sm-4">
             <span>Test your skills!</span><br />
             https://leetcode.com/ <br />https://www.kaggle.com/<br />
             https://www.hackerrank.com
           </section>
-          </section>
-        </div>
-        <div class="text-center">
-          &copy; Copyright  The Decoders, 2022
         </div>
       </div>
     </footer>
-
-    <!--Java Script -->
-    <!-- jQuery is needed for JS -->
-    <script
-      src="https://code.jquery.com/jquery-2.2.4.js"
-      integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-      crossorigin="anonymous"
-    ></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
-      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

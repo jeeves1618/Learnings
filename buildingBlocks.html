@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Blocks in System Design</title>
+  </head>
+  <body>
+    <h1>Building Blocks in System Design</h1>
+    <h2>Contents</h2>
+    <ul>
+      <li>
+        <a href="#dns">Domain Name System</a>
+        <ul>
+          <li><a href="#dns-resolver">DNS resolver</a></li>
+          <li>
+            <a href="#root-level-name-servers">Root-level name servers</a>
+          </li>
+          <li>
+            <a href="#tld-name-servers">Top-level domain (TLD) name servers</a>
+          </li>
+          <li>
+            <a href="#authoritative-name-servers">Authoritative name servers</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#load-balancers">Load Balancers</a>
+        <ul>
+          <li><a href="#tier-0-tier-1-lbs">Tier-0 and tier-1 LBs</a></li>
+          <li><a href="#tier-2-lbs">Tier-2 LBs</a></li>
+          <li><a href="#tier-3-lbs">Tier-3 LBs</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#databases">Databases</a>
+        <ul>
+          <li><a href="#replication">Replication</a></li>
+          <li><a href="#sharding">Sharding</a></li>
+          <li><a href="#multitenancy">Multitenancy</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#key-value-store">Key Value Store</a>
+        <ul>
+          <li><a href="#consistent-hashing">Consistent Hashing</a></li>
+          <li><a href="#merkle-tree">Merkle Tree</a></li>
+          <li><a href="#vector-clock">Vector Clock</a></li>
+          <li><a href="#cluster">Cluster</a></li>
+          <li><a href="#clients-cluster">Clients in a cluster</a></li>
+          <li><a href="#quorum">Quorum</a></li>
+          <li><a href="#consistency-protocol">Consistency Protocol</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#cdn">Content Delivery Network (CDN)</a>
+        <ul>
+          <li>
+            <a href="#multi-tier-cdn-architecture"
+              >Multi-tier CDN architecture</a
+            >
+          </li>
+          <li><a href="#dns-redirection">DNS Redirection</a></li>
+          <li><a href="#anycast">Anycast</a></li>
+          <li><a href="#client-multiplexing">Client multiplexing</a></li>
+          <li><a href="#http-redirection">HTTP redirection</a></li>
+          <li><a href="#content-consistency">Content Consistency</a></li>
+        </ul>
+      </li>
+      <li><a href="#sequencer">Sequencer</a></li>
+    </ul>
+
+    <h2 id="dns">Domain Name System</h2>
+    <p>
+      Imagine DNS server as a phonebook. In the same way as phone book maps
+      easily recognizable names to the obscure 10-digit numbers a domain name
+      system (DNS) is the Internet’s naming service that maps human-friendly
+      domain names to machine-readable IP addresses. Here are the four key
+      components in a Domain Name System.
+    </p>
+    <img src="path/to/image1.png" alt="DNS Diagram" />
+    <ul>
+      <li>
+        <strong>Name servers:</strong> DNS servers that respond to users’
+        queries are called name servers.
+      </li>
+      <li>
+        <strong>Resource records:</strong> The DNS database stores domain name
+        to IP address mappings in the form of resource records (RR).
+      </li>
+      <li>
+        <strong>Caching:</strong> Caching refers to the temporary storage of
+        frequently requested resource records.
+      </li>
+      <li>
+        <strong>Hierarchy:</strong> DNS name servers are in a hierarchical form.
+        The hierarchical structure allows DNS to be highly scalable.
+      </li>
+      <li>
+        <strong>Consistency:</strong> DNS compromises on strong consistency to
+        achieve high performance.
+      </li>
+    </ul>
+    <p>There are mainly four types of servers in the DNS hierarchy:</p>
+    <h3 id="dns-resolver">DNS resolver</h3>
+    <p>
+      Resolvers initiate the querying sequence and forward requests to the other
+      DNS name servers.
+    </p>
+    <img src="path/to/image2.png" alt="DNS Resolver" />
+
+    <h3 id="root-level-name-servers">Root-level name servers</h3>
+    <p>These servers receive requests from local servers.</p>
+    <img src="path/to/image3.png" alt="Root-level Name Servers" />
+
+    <h3 id="tld-name-servers">Top-level domain (TLD) name servers</h3>
+    <p>These servers hold the IP addresses of authoritative name servers.</p>
+    <img src="path/to/image4.png" alt="TLD Name Servers" />
+
+    <h3 id="authoritative-name-servers">Authoritative name servers</h3>
+    <p>
+      These are the organization’s DNS name servers that provide the IP
+      addresses of the web or application servers.
+    </p>
+    <img src="path/to/image5.png" alt="Authoritative Name Servers" />
+
+    <h2 id="load-balancers">Load Balancers</h2>
+    <p>
+      Load balancers improve the scalability availability and performance of
+      software applications.
+    </p>
+    <p>There are two types of load balancers:</p>
+    <ul>
+      <li>
+        Global server load balancing (GSLB): GSLB involves the distribution of
+        traffic load across multiple geographical regions.
+      </li>
+      <li>
+        Local load balancing: This refers to load balancing achieved within a
+        data center.
+      </li>
+    </ul>
+    <p>Load balancers can employ static or dynamic algorithms.</p>
+    <p>
+      Depending on the requirements load balancing can be performed at the
+      network/transport and application layer of the open systems
+      interconnection (OSI) layers.
+    </p>
+    <img src="path/to/image6.png" alt="Load Balancers" />
+    <h3 id="tier-0-tier-1-lbs">Tier-0 and tier-1 LBs</h3>
+    <p>
+      If DNS can be considered as the tier-0 load balancer equal cost multipath
+      (ECMP) routers are the tier-1 LBs.
+    </p>
+    <img src="path/to/image7.png" alt="Tier-0 and Tier-1 Load Balancers" />
+
+    <h3 id="tier-2-lbs">Tier-2 LBs</h3>
+    <p>The second tier of LBs include layer 4 load balancers.</p>
+    <img src="path/to/image8.png" alt="Tier-2 Load Balancers" />
+
+    <h3 id="tier-3-lbs">Tier-3 LBs</h3>
+    <p>Layer 7 LBs provide services at tier 3.</p>
+    <img src="path/to/image9.png" alt="Tier-3 Load Balancers" />
+
+    <h2 id="databases">Databases</h2>
+    <p>
+      A database is an organized collection of data that can be managed and
+      accessed easily.
+    </p>
+    <p>There are two types of databases: SQL and NoSQL.</p>
+    <img src="path/to/image10.png" alt="Databases" />
+    <h3 id="replication">Replication</h3>
+    <p>
+      Synchronous (optimized for latency) Vs Asynchronous (optimized for
+      availability).
+    </p>
+    <img src="path/to/image11.png" alt="Replication" />
+
+    <h3 id="sharding">Sharding</h3>
+    <p>
+      To divide load among multiple nodes we need to partition the data by a
+      phenomenon known as partitioning or sharding.
+    </p>
+    <img src="path/to/image12.png" alt="Sharding" />
+
+    <h3 id="multitenancy">Multitenancy</h3>
+    <p>
+      A cluster can be shared between multiple departments phases (dev stage
+      etc.) or between primary and back up.
+    </p>
+    <img src="path/to/image13.png" alt="Multitenancy" />
+
+    <h2 id="key-value-store">Key Value Store</h2>
+    <p>Key-value stores are distributed hash tables (DHTs).</p>
+    <img src="path/to/image14.png" alt="Key Value Store" />
+    <h3 id="consistent-hashing">Consistent Hashing</h3>
+    <p>
+      Consistent hashing is an effective way to manage the load over the set of
+      nodes.
+    </p>
+    <img src="path/to/image15.png" alt="Consistent Hashing" />
+
+    <h3 id="merkle-tree">Merkle Tree</h3>
+    <p>Merkle tree is used to validate the consistency across the nodes.</p>
+    <img src="path/to/image16.png" alt="Merkle Tree" />
+
+    <h3 id="vector-clock">Vector Clock</h3>
+    <p>
+      Vector clocks help to determine the order of events in a distributed
+      system.
+    </p>
+    <img src="path/to/image17.png" alt="Vector Clock" />
+
+    <h3 id="cluster">Cluster</h3>
+    <p>
+      A cluster is just a bunch of servers grouped together to provide one or
+      more functions such as storage or computation.
+    </p>
+    <img src="path/to/image18.png" alt="Cluster" />
+
+    <h3 id="clients-cluster">Clients in a cluster</h3>
+    <p>
+      The entry into this cluster will be through a client or an edge server.
+    </p>
+    <img src="path/to/image19.png" alt="Clients in a Cluster" />
+
+    <h3 id="quorum">Quorum</h3>
+    <p>
+      A quorum is the minimum number of votes required for a distributed
+      transaction to proceed with an operation.
+    </p>
+    <img src="path/to/image20.png" alt="Quorum" />
+
+    <h3 id="consistency-protocol">Consistency Protocol</h3>
+    <p>In a system that follows quorum r + w > n is an important constraint.</p>
+    <img src="path/to/image21.png" alt="Consistency Protocol" />
+
+    <h2 id="cdn">Content Delivery Network (CDN)</h2>
+    <p>
+      Main components of CDN are the origin server edge proxy servers which
+      store the content a distribution system to push/pull the content to the
+      proxy servers a routing system client talks to before zeroing in on a
+      proxy server a scrubber server that resides between the client and proxy
+      and management system to the help the origin servers to optimize the
+      content to be pushed to proxys.
+    </p>
+    <img src="path/to/image22.png" alt="Content Delivery Network" />
+    <h3 id="multi-tier-cdn-architecture">Multi-tier CDN architecture</h3>
+    <p>
+      CDN addresses three important problems: high latency, redundant
+      calculations, and scarce data centre resources.
+    </p>
+    <img src="path/to/image23.png" alt="Multi-tier CDN Architecture" />
+
+    <h3 id="dns-redirection">DNS Redirection</h3>
+    <p>
+      DNS redirection is a technique to direct users to the closest proxy
+      server.
+    </p>
+    <img src="path/to/image24.png" alt="DNS Redirection" />
+
+    <h3 id="anycast">Anycast</h3>
+    <p>
+      Anycast allows different destinations to be reachable through the same IP
+      address.
+    </p>
+    <img src="path/to/image25.png" alt="Anycast" />
+
+    <h3 id="client-multiplexing">Client multiplexing</h3>
+    <p>
+      Client multiplexing allows a single server to serve multiple clients
+      simultaneously.
+    </p>
+    <img src="path/to/image26.png" alt="Client Multiplexing" />
+
+    <h3 id="http-redirection">HTTP redirection</h3>
+    <p>HTTP redirection uses HTTP status codes to direct traffic.</p>
+    <img src="path/to/image27.png" alt="HTTP Redirection" />
+
+    <h3 id="content-consistency">Content Consistency</h3>
+    <p>
+      Maintaining content consistency across various nodes is crucial for CDN.
+    </p>
+    <img src="path/to/image28.png" alt="Content Consistency" />
+
+    <h2 id="sequencer">Sequencer</h2>
+    <p>
+      In distributed systems the order in which messages are processed matters.
+      A sequencer is a node that generates unique and ordered sequence numbers.
+      Sequencers help to serialize the access to a shared resource or the
+      communication between nodes.
+    </p>
+    <img src="path/to/image29.png" alt="Sequencer" />
+  </body>
+</html>
