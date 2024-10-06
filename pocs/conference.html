@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conference Room Management System Requirements</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Oxygen", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center mb-5">
+        Conference Room Management System Requirements
+      </h1>
+
+      <section>
+        <h2>Overview</h2>
+        <p>
+          The web application will be a conference room management system
+          developed using Java, Spring Boot, Thymeleaf, HTML, and CSS. The
+          system will have two types of users: <strong>Admins</strong> and
+          <strong>Conference Room Users</strong>. The interface will be
+          responsive, ensuring it is viewable on PCs, tablets, and mobile
+          devices.
+        </p>
+      </section>
+
+      <section>
+        <h2>1. User Roles & Permissions</h2>
+
+        <h3>1.1 Admin</h3>
+        <p>
+          <strong>Role:</strong> The Admin will have full control over managing
+          conference rooms and their facilities.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>Add new conference rooms to the system.</li>
+          <li>Update details of existing conference rooms.</li>
+          <li>View details of all conference rooms.</li>
+          <li>Delete conference rooms from the system.</li>
+          <li>Add new facilities to the system.</li>
+          <li>Update existing facilities in conference rooms.</li>
+          <li>View details of available facilities.</li>
+          <li>Delete facilities from conference rooms.</li>
+        </ul>
+
+        <h3>1.2 Conference Room User</h3>
+        <p>
+          <strong>Role:</strong> Conference room users will have limited access
+          focused on booking and managing their use of the conference rooms.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>View the list of available conference rooms.</li>
+          <li>Book a conference room for a specific date and time.</li>
+          <li>Cancel an existing booking.</li>
+          <li>Request additional facilities for a booked conference room.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Functional Requirements</h2>
+
+        <h3>2.1 Admin Functionalities</h3>
+
+        <h4>2.1.1 Add Conference Room</h4>
+        <p>
+          Form to input conference room details: Name, Location, Capacity, and
+          Available Facilities. On submission, the conference room is added to
+          the system.
+        </p>
+
+        <h4>2.1.2 Update Conference Room</h4>
+        <p>
+          List of conference rooms with options to edit each room. Form to
+          update the details of the selected conference room. On submission, the
+          room details are updated in the database.
+        </p>
+
+        <h4>2.1.3 View Conference Rooms</h4>
+        <p>
+          List view of all conference rooms. Filter and search options for easy
+          navigation. Detailed view of individual conference rooms on selection.
+        </p>
+
+        <h4>2.1.4 Delete Conference Room</h4>
+        <p>
+          Option to delete conference rooms from the list view. Confirmation
+          dialog before deletion.
+        </p>
+
+        <h4>2.1.5 Add Facility</h4>
+        <p>
+          Form to input facility details: Facility Name, Description, and
+          Associated Conference Rooms. On submission, the facility is added to
+          the system and associated with the relevant rooms.
+        </p>
+
+        <h4>2.1.6 Update Facility</h4>
+        <p>
+          List of facilities with options to edit each one. Form to update the
+          details of the selected facility. On submission, the facility details
+          are updated in the database.
+        </p>
+
+        <h4>2.1.7 View Facilities</h4>
+        <p>
+          List view of all facilities available in the conference rooms. Filter
+          and search options for easy navigation. Detailed view of individual
+          facilities on selection.
+        </p>
+
+        <h4>2.1.8 Delete Facility</h4>
+        <p>
+          Option to delete facilities from the list view. Confirmation dialog
+          before deletion.
+        </p>
+
+        <h3>2.2 Conference Room User Functionalities</h3>
+
+        <h4>2.2.1 Book Conference Room</h4>
+        <p>
+          View a list of available conference rooms, including their details and
+          facilities. Select a conference room to book for a specific date and
+          time. Confirmation page showing booking details. Booking transaction
+          is recorded in the database.
+        </p>
+
+        <h4>2.2.2 Cancel Booking</h4>
+        <p>
+          List of the user's current bookings. Option to cancel a booking.
+          Confirmation page showing cancellation details. Cancellation
+          transaction is recorded in the database.
+        </p>
+
+        <h4>2.2.3 Request Additional Facilities</h4>
+        <p>
+          For a booked conference room, users can request additional facilities.
+          Form to select desired facilities. Confirmation page showing the
+          updated booking with requested facilities. The request is recorded in
+          the database, and an email notification is sent to the admin.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Non-Functional Requirements</h2>
+
+        <h3>3.1 Responsiveness</h3>
+        <p>
+          The application must be fully responsive, using Bootstrap to ensure
+          optimal viewing on PCs, tablets, and mobile devices.
+        </p>
+
+        <h3>3.2 Security</h3>
+        <p>
+          Role-based access control (RBAC) to ensure only authorized users
+          (Admins and Conference Room Users) can access specific
+          functionalities. Secure handling of booking transactions. Data
+          validation on both client-side (using JavaScript) and server-side.
+        </p>
+
+        <h3>3.3 Performance</h3>
+        <p>
+          The application should load quickly and handle up to 500 simultaneous
+          users without significant performance degradation. Efficient database
+          queries to minimize load times.
+        </p>
+
+        <h3>3.4 Scalability</h3>
+        <p>
+          The application architecture should allow for easy addition of new
+          features and scaling to support more users and rooms.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Technical Stack</h2>
+        <ul>
+          <li><strong>Backend:</strong> Java, Spring Boot</li>
+          <li><strong>Frontend:</strong> Thymeleaf, HTML, CSS, Bootstrap</li>
+          <li>
+            <strong>Database:</strong> MySQL/PostgreSQL/H2 (or any other
+            suitable relational database)
+          </li>
+          <li>
+            <strong>Notification System:</strong> Integration with an email
+            service to notify admins of booking requests and facility requests.
+            Please use your own internal email address.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Development & Testing</h2>
+
+        <h3>5.1 Development</h3>
+        <p>
+          The development will follow Agile methodology with iterative sprints.
+          Continuous integration and deployment (CI/CD) pipelines will be set up
+          for automated testing and deployment.
+        </p>
+
+        <h3>5.2 Testing</h3>
+        <p>
+          Please consider writing test cases as optional for now. Unit tests for
+          backend services using JUnit. Frontend testing with Selenium or
+          equivalent tool. Security testing for role-based access and
+          transaction handling. Performance testing to ensure the application
+          meets performance requirements.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Deployment</h2>
+        <p>
+          The application will be deployed only in your local machine. The
+          source code should be added to internal github on a daily basis.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Documentation</h2>
+        <p>
+          User documentation and technical documentation should be provided for
+          future maintenance and upgrades.
+        </p>
+      </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

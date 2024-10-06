@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Shop Management System Requirements</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Oxygen", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      ul {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center mb-5">
+        Coffee Shop Management System Requirements
+      </h1>
+
+      <div class="section">
+        <h2>Overview</h2>
+        <p>
+          This web application will manage coffee shop operations, providing
+          interfaces for two types of users: <strong>Baristas</strong> and
+          <strong>Patrons</strong>. Developed using Java, Spring Boot,
+          Thymeleaf, HTML, and CSS, the application will handle drink inventory
+          management, order placement, and order tracking. The platform will be
+          responsive and viewable on PCs, tablets, and phones.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>1. User Roles & Permissions</h2>
+
+        <h3>1.1 Barista</h3>
+        <p>
+          <strong>Role:</strong> Manage drink inventory, process orders, and
+          update order status.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>Add, update, view, and delete drink details in the inventory.</li>
+          <li>View and check out submitted orders.</li>
+          <li>Mark orders as completed.</li>
+          <li>Manage inventory levels after completing orders.</li>
+        </ul>
+
+        <h3>1.2 Patron</h3>
+        <p>
+          <strong>Role:</strong> View drink offerings, customize drinks with
+          add-ons, and place orders.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>View available drinks and details.</li>
+          <li>Select drinks and add condiments and other add-ons.</li>
+          <li>View dynamically updated prices based on selected add-ons.</li>
+          <li>Submit orders.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>2. Functional Requirements</h2>
+
+        <h3>2.1 Barista Functionalities</h3>
+
+        <h4>2.1.1 Manage Drink Inventory</h4>
+        <p>
+          Baristas can add new drinks, update existing drink details (e.g.,
+          name, description, price), and delete drinks from the inventory.
+        </p>
+        <p><strong>Example Offerings:</strong></p>
+        <ul>
+          <li><strong>Espresso:</strong> A strong, rich coffee.</li>
+          <li>
+            <strong>Latte:</strong> Espresso with steamed milk and a light foam.
+          </li>
+          <li>
+            <strong>Cappuccino:</strong> Espresso with equal parts steamed milk
+            and foam.
+          </li>
+          <li>
+            <strong>Mocha:</strong> Espresso with chocolate syrup and steamed
+            milk.
+          </li>
+          <li>
+            <strong>Cold Brew:</strong> Coffee brewed with cold water over an
+            extended period.
+          </li>
+        </ul>
+
+        <h4>2.1.2 Order Management</h4>
+        <p>
+          Baristas can view all submitted orders, check out orders under their
+          name, and mark orders as completed.
+        </p>
+        <ul>
+          <li>
+            <strong>Order Checkout:</strong> Once an order is checked out, it is
+            locked to prevent other baristas from working on it.
+          </li>
+          <li>
+            <strong>Marking Orders Completed:</strong> Baristas will mark orders
+            as completed, which will adjust the inventory accordingly.
+          </li>
+        </ul>
+
+        <h3>2.2 Patron Functionalities</h3>
+
+        <h4>2.2.1 View Drink Offerings</h4>
+        <p>
+          Patrons can browse through the list of available drinks with detailed
+          descriptions and prices.
+        </p>
+
+        <h4>2.2.2 Customize Drinks</h4>
+        <p>
+          Patrons can choose a drink and customize it with additional condiments
+          and add-ons (e.g., milk type, syrup flavors, whipped cream).
+        </p>
+        <p>
+          <strong>Dynamic Pricing:</strong> The total price will update
+          dynamically as add-ons are selected.
+        </p>
+
+        <h4>2.2.3 Place Order</h4>
+        <p>
+          Once patrons finalize their drink customization, they can submit the
+          order for processing.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>3. Non-Functional Requirements</h2>
+
+        <h3>3.1 Responsiveness</h3>
+        <p>
+          The application must be fully responsive using Bootstrap to ensure it
+          is viewable on PCs, tablets, and mobile devices.
+        </p>
+
+        <h3>3.2 Security</h3>
+        <p>
+          Implement role-based access control (RBAC) to ensure that patrons and
+          baristas only access functionalities specific to their roles. Secure
+          handling of order data and inventory information with SSL encryption.
+          Data validation on both client-side (using JavaScript) and
+          server-side.
+        </p>
+
+        <h3>3.3 Performance</h3>
+        <p>
+          The application should handle up to 200 simultaneous users without
+          significant performance degradation. Optimize database queries and
+          page load times for a seamless user experience.
+        </p>
+
+        <h3>3.4 Scalability</h3>
+        <p>
+          The system architecture should allow for easy scaling to accommodate
+          more users, drinks, and orders as the platform grows.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>4. Technical Stack</h2>
+        <ul>
+          <li><strong>Backend:</strong> Java, Spring Boot</li>
+          <li><strong>Frontend:</strong> Thymeleaf, HTML, CSS, Bootstrap</li>
+          <li>
+            <strong>Database:</strong> MySQL/PostgreSQL/H2 (or any suitable
+            relational database)
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>5. Development & Testing</h2>
+
+        <h3>5.1 Development</h3>
+        <p>
+          Agile methodology will be followed, with iterative sprints for
+          continuous development and feature integration. A CI/CD pipeline will
+          be established for automated testing and deployment.
+        </p>
+
+        <h3>5.2 Testing</h3>
+        <p>
+          Please consider writing test cases as optional for now. Unit tests for
+          backend services using JUnit. Frontend testing with Selenium or an
+          equivalent tool. Security testing to ensure the application is secure
+          against common vulnerabilities like SQL injection, XSS, etc.
+          Performance testing to verify that the application meets performance
+          and scalability requirements.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>6. Deployment</h2>
+        <p>
+          The application will be deployed only in your local machine. The
+          source code should be added to internal github on a daily basis.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>7. Documentation</h2>
+        <p>
+          Comprehensive user and technical documentation will be provided to
+          assist in future maintenance and upgrades.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

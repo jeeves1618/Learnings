@@ -49,12 +49,40 @@
         font-size: large;
         text-decoration: underline;
       }
+      .tile {
+        background-color: #dfe6e9;
+        padding: 0px;
+        margin: 0%;
+        text-align: center;
+        border-radius: 0px 20px 0px 0px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      .title .inward-shadow {
+        box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.3); /* Inward shadow */
+      }
     </style>
   </head>
   <body>
     <div class="container mt-5">
       <h1 class="text-center mb-5">Learning Resources</h1>
       <br />
+
+      <div class="row mb-5 d-flex justify-content-center">
+        <div class="tile col-md-3">
+          <h5 id="title-tab-text-1">Languages</h5>
+        </div>
+        <div class="tile col-md-3">
+          <h5 id="title-tab-text-2">Engineering</h5>
+        </div>
+        <div class="tile col-md-3">
+          <h5 id="title-tab-text-3">Architecture</h5>
+        </div>
+        <div class="tile col-md-3">
+          <h5 id="title-tab-text-4">Communication</h5>
+        </div>
+      </div>
+
       <div class="row mb-5">
         <div class="col-md-12 section-header">
           <h2>1. Java Free Book</h2>
@@ -332,4 +360,5 @@
       </div>
     </footer>
   </body>
+  <script type="module" src="js/roadmap.js"></script>
 </html>

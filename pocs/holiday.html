@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday Home Management System Requirements</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Oxygen", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      ul {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center mb-5">
+        Holiday Home Management System Requirements
+      </h1>
+
+      <div class="section">
+        <h2>Overview</h2>
+        <p>
+          This web application will be a holiday home management platform
+          developed using Java, Spring Boot, Thymeleaf, HTML, and CSS. The
+          platform will cater to three types of users:
+          <strong>Platform Admins</strong>, <strong>Hosts</strong>, and
+          <strong>Guests</strong>. The application will be responsive, ensuring
+          that it is accessible and user-friendly on PCs, tablets, and mobile
+          devices.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>1. User Roles & Permissions</h2>
+
+        <h3>1.1 Platform Admin</h3>
+        <p>
+          <strong>Role:</strong> The Platform Admin will have comprehensive
+          control over managing the holiday homes and the attractions near these
+          homes.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>Add new holiday homes to the system.</li>
+          <li>Update details of existing holiday homes.</li>
+          <li>View the details of all holiday homes.</li>
+          <li>Delete holiday homes from the system.</li>
+          <li>
+            Add, update, view, and delete nearby attractions associated with
+            each holiday home.
+          </li>
+          <li>
+            Assign a host to each holiday home (a home can have only one host).
+          </li>
+        </ul>
+
+        <h3>1.2 Host</h3>
+        <p>
+          <strong>Role:</strong> The Host will manage the holiday home(s)
+          assigned to them by the Platform Admin.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>
+            Add new holiday homes to the system (linked to the host account).
+          </li>
+          <li>Update details of their assigned holiday homes.</li>
+          <li>View details of their assigned holiday homes.</li>
+          <li>Delete their assigned holiday homes from the system.</li>
+          <li>
+            Request the Platform Admin to add, update, or delete nearby
+            attractions for their holiday homes.
+          </li>
+        </ul>
+
+        <h3>1.3 Guest</h3>
+        <p>
+          <strong>Role:</strong> The Guest will interact with the holiday homes
+          by viewing, booking, and canceling reservations.
+        </p>
+        <p><strong>Permissions:</strong></p>
+        <ul>
+          <li>List all available holiday homes.</li>
+          <li>
+            View detailed information about each holiday home, including its
+            amenities and nearby attractions.
+          </li>
+          <li>
+            Book a holiday home by specifying the number of guests and the stay
+            duration.
+          </li>
+          <li>Cancel an existing booking.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>2. Functional Requirements</h2>
+
+        <h3>2.1 Platform Admin Functionalities</h3>
+        <h4>2.1.1 Add Holiday Home</h4>
+        <p>
+          Form to input holiday home details: Name, Address, Description,
+          Capacity, Price per night, and Amenities. Option to assign the holiday
+          home to a specific host. On submission, the holiday home is added to
+          the system.
+        </p>
+
+        <h4>2.1.2 Update Holiday Home</h4>
+        <p>
+          List of all holiday homes with options to edit each home. Form to
+          update the details of the selected holiday home. On submission, the
+          updated details are saved in the database.
+        </p>
+
+        <h4>2.1.3 View Holiday Homes</h4>
+        <p>
+          List view of all holiday homes with search and filter options.
+          Detailed view of individual holiday homes, including host details.
+        </p>
+
+        <h4>2.1.4 Delete Holiday Home</h4>
+        <p>
+          Option to delete holiday homes from the list view. Confirmation dialog
+          before deletion.
+        </p>
+
+        <h4>2.1.5 Manage Nearby Attractions</h4>
+        <p>
+          Add new nearby attractions, associating them with specific holiday
+          homes. Update details of existing attractions. View all attractions
+          linked to holiday homes. Delete attractions from the system. Manage
+          attraction requests from hosts.
+        </p>
+
+        <h3>2.2 Host Functionalities</h3>
+        <h4>2.2.1 Add Holiday Home</h4>
+        <p>
+          Form to input holiday home details similar to the admin view but
+          limited to homes managed by the host. On submission, the home is added
+          under the host's management. Hosts cannot assign other hosts to the
+          home.
+        </p>
+
+        <h4>2.2.2 Update Holiday Home</h4>
+        <p>
+          List of holiday homes managed by the host with options to edit each
+          home. Form to update the details of the selected holiday home. On
+          submission, the details are updated in the database.
+        </p>
+
+        <h4>2.2.3 View Holiday Homes</h4>
+        <p>
+          List view of all holiday homes managed by the host with search and
+          filter options. Detailed view of individual holiday homes.
+        </p>
+
+        <h4>2.2.4 Delete Holiday Home</h4>
+        <p>
+          Option to delete holiday homes managed by the host. Confirmation
+          dialog before deletion.
+        </p>
+
+        <h4>2.2.5 Request Nearby Attractions</h4>
+        <p>
+          Form to request the Platform Admin to add, update, or delete nearby
+          attractions for their holiday homes. Track the status of requests
+          (e.g., pending, approved, or rejected).
+        </p>
+
+        <h3>2.3 Guest Functionalities</h3>
+        <h4>2.3.1 List Holiday Homes</h4>
+        <p>
+          Display a list of all available holiday homes with filters for
+          location, price, capacity, and available dates. Search functionality
+          to find specific holiday homes.
+        </p>
+
+        <h4>2.3.2 View Holiday Home Details</h4>
+        <p>
+          Detailed view of each holiday home, including images, description,
+          capacity, price, amenities, and nearby attractions. Availability
+          calendar showing available dates for booking.
+        </p>
+
+        <h4>2.3.3 Book Holiday Home</h4>
+        <p>
+          Form to select the number of guests, stay duration, and other relevant
+          details. Review page to confirm booking details. On confirmation, the
+          booking is saved in the database, and a confirmation email is sent to
+          the guest.
+        </p>
+
+        <h4>2.3.4 Cancel Booking</h4>
+        <p>
+          List of the guest's current bookings with options to cancel.
+          Confirmation dialog before cancellation. On cancellation, the booking
+          is removed from the database, and a cancellation email is sent to the
+          guest.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>3. Non-Functional Requirements</h2>
+
+        <h3>3.1 Responsiveness</h3>
+        <p>
+          The application must be fully responsive, using Bootstrap to ensure
+          optimal viewing on PCs, tablets, and mobile devices.
+        </p>
+
+        <h3>3.2 Security</h3>
+        <p>
+          Role-based access control (RBAC) to ensure that only authorized users
+          (Platform Admins, Hosts, and Guests) can access specific
+          functionalities. Secure handling of bookings and personal information.
+          Data validation on both client-side (using JavaScript) and
+          server-side.
+        </p>
+
+        <h3>3.3 Performance</h3>
+        <p>
+          The application should load quickly and handle up to 500 simultaneous
+          users without significant performance degradation. Efficient database
+          queries to minimize load times.
+        </p>
+
+        <h3>3.4 Scalability</h3>
+        <p>
+          The application architecture should allow for easy addition of new
+          features and scaling to support more users, holiday homes, and
+          bookings.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>4. Technical Stack</h2>
+        <ul>
+          <li><strong>Backend:</strong> Java, Spring Boot</li>
+          <li><strong>Frontend:</strong> Thymeleaf, HTML, CSS, Bootstrap</li>
+          <li>
+            <strong>Database:</strong> MySQL/PostgreSQL/H2 (or any other
+            suitable relational database)
+          </li>
+          <li>
+            <strong>Notification System:</strong> Integration with an email
+            service to notify guests of booking confirmations and cancellations,
+            and to notify admins of host requests.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>5. Development & Testing</h2>
+
+        <h3>5.1 Development</h3>
+        <p>
+          The development will follow Agile methodology with iterative sprints.
+          Continuous integration and deployment (CI/CD) pipelines will be set up
+          for automated testing and deployment.
+        </p>
+
+        <h3>5.2 Testing</h3>
+        <p>
+          Please consider writing test cases as optional for now. Unit tests for
+          backend services using JUnit. Frontend testing with Selenium or an
+          equivalent tool. Security testing for role-based access and
+          transaction handling. Performance testing to ensure the application
+          meets performance requirements.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>6. Deployment</h2>
+        <p>
+          The application will be deployed only in your local machine. The
+          source code should be added to internal github on a daily basis.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>7. Documentation</h2>
+        <p>
+          User documentation and technical documentation should be provided for
+          future maintenance and upgrades.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
