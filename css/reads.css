@@ -9,11 +9,16 @@ ol {
 h1 {
   padding-top: 2rem;
   text-align: center;
-  background-color: white;
-  color: black;
-
+  background-color: rgb(63, 62, 62);
+  color: white;
+  font-family: "Inconsolata", monospace;
+  font-weight: 800;
+  font-size: 3rem;
   margin: 0;
+  padding-bottom: 2rem;
+  margin-bottom: 0.1rem;
 }
+
 li {
   margin: 2rem;
 }
