@@ -25,6 +25,7 @@ x.addEventListener("change", function () {
 let formatPage = function (formatedData) {
   let prevMonth = "00";
   let currentMonthInteger = 0;
+  let skippedMonths = 0;
   const bookListElement = document.getElementById("book-list");
   for (const element of formatedData) {
     let yearToBeConsidered = filterByYear(element);
@@ -32,12 +33,13 @@ let formatPage = function (formatedData) {
     if (yearToBeConsidered == yearOfReading) {
       let currentMonth = element.dateOfReading.substring(5, 7);
       if (currentMonth > prevMonth) {
-        let skippedMonths = parseInt(currentMonth) - parseInt(prevMonth) - 1;
+        skippedMonths = parseInt(currentMonth) - parseInt(prevMonth) - 1;
+        if (prevMonth != "00") booksReadData.push(currentMonthInteger);
         for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
           booksReadData.push(0);
         }
+
         breakMonth(currentMonth, bookListElement);
-        if (prevMonth != "00") booksReadData.push(currentMonthInteger);
         currentMonthInteger = 0;
         prevMonth = currentMonth;
       }
@@ -47,7 +49,7 @@ let formatPage = function (formatedData) {
   }
 
   booksReadData.push(currentMonthInteger);
-  let skippedMonths = 0;
+  skippedMonths = 0;
   if (booksReadData.length < 12) skippedMonths = 12 - booksReadData.length;
   for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
     booksReadData.push(0);
@@ -89,6 +91,7 @@ let formatPage = function (formatedData) {
   charterFunction(booksReadData, xaxisCategories);
 };
 const getTopics = function () {
+  //fetch(`http://localhost:8080/book-list.json`) For testing with local Json.
   fetch(
     `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/book-list.json`
   )
