@@ -80,7 +80,7 @@ hr {
   text-align: center;
 }
 .navbar {
-  background-color: black;
+  background-color: rgb(103, 101, 101);
   font-size: 2rem;
   color: white;
 }
@@ -88,7 +88,7 @@ hr {
   color: white;
 }
 .btn-outline-white {
-  color: black;
+  color: #212529;
   outline: white;
   border: white;
 }
@@ -108,6 +108,8 @@ hr {
 #chart {
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   text-align: center;
 }
 
