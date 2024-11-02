@@ -331,16 +331,27 @@ const assignAuthors = function (book) {
 const lineSeperator = function () {
   bodyElement.append(document.createElement("hr"));
 };
+
 getTopics();
 lineSeperator();
 scrollManager();
 breakElement();
 
-document.querySelector("#search-button").addEventListener("click", function () {
-  const searchToken = document.querySelector(".form-control");
-  console.log("Search requested for " + searchToken.value);
-  location.href = "results.html?token=" + searchToken.value;
-});
+document
+  .querySelector("#search-button-1")
+  .addEventListener("click", function () {
+    const searchToken = document.querySelector(".form-control-1");
+    console.log("Search requested for " + searchToken.value);
+    location.href = "results.html?token=" + searchToken.value;
+  });
+
+document
+  .querySelector("#search-button-2")
+  .addEventListener("click", function () {
+    const searchToken = document.querySelector(".form-control-2");
+    console.log("Search requested for " + searchToken.value);
+    location.href = "results.html?token=" + searchToken.value;
+  });
 
 document
   .querySelector("#search-input")

@@ -20,7 +20,24 @@ h1 {
 }
 
 li {
+  display: flex;
+  align-items: center;
+  list-style-type: none; /* Remove default marker */
   margin: 2rem;
+}
+
+ol {
+  counter-reset: list-counter; /* Initialize the counter */
+}
+
+li::before {
+  counter-increment: list-counter; /* Increment counter for each <li> */
+  content: counter(list-counter) "."; /* Display the counter followed by a dot */
+  margin-right: 2rem; /* Space between number and text */
+  width: 2rem; /* Set a fixed width to align numbers */
+  text-align: right; /* Right-align the numbers within the width */
+  display: inline-block; /* Ensure width and alignment work */
+  color: black; /* Customize color if needed */
 }
 a {
   color: #000;
