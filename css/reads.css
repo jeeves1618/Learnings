@@ -14,7 +14,6 @@ h1 {
   font-family: "Inconsolata", monospace;
   font-weight: 800;
   font-size: 3rem;
-  margin: 0;
   padding-bottom: 2rem;
   margin-bottom: 0.1rem;
 }
@@ -23,7 +22,7 @@ li {
   display: flex;
   align-items: center;
   list-style-type: none; /* Remove default marker */
-  margin: 0.1rem;
+  margin: 0.25rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -195,8 +194,8 @@ hr {
   }
 
   ol {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 
   #month_image {
@@ -219,8 +218,8 @@ hr {
   }
 
   ol {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 
   #month_image {
