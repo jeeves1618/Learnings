@@ -22,6 +22,55 @@ x.addEventListener("change", function () {
   getTopics();
 });
 */
+const charterFunction = function (booksReadData, xaxisCategories) {
+  var options = {
+    series: [
+      {
+        name: "Books Read",
+        data: booksReadData,
+      },
+    ],
+    chart: {
+      height: 350,
+      type: "line",
+      zoom: {
+        enabled: false,
+      },
+    },
+    colors: ["#545454"],
+    dataLabels: {
+      enabled: true,
+    },
+    stroke: {
+      curve: "straight",
+    },
+    title: {
+      text:
+        "My tryst with " + annualReads + " books in " + yearOfReading + "...",
+      align: "center",
+      style: {
+        fontFamily: "Inconsolata",
+        fontSize: "16",
+      },
+    },
+    grid: {
+      row: {
+        colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+        opacity: 0.5,
+      },
+    },
+    xaxis: {
+      categories: xaxisCategories,
+    },
+    yaxis: {
+      stepSize: 1,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+};
+
 let formatPage = function (formatedData) {
   let prevMonth = "00";
   let currentMonthInteger = 0;
@@ -421,52 +470,3 @@ function handleGesture(e) {
     console.log("tap");
   }
 }
-
-const charterFunction = function (booksReadData, xaxisCategories) {
-  var options = {
-    series: [
-      {
-        name: "Books Read",
-        data: booksReadData,
-      },
-    ],
-    chart: {
-      height: 350,
-      type: "line",
-      zoom: {
-        enabled: false,
-      },
-    },
-    colors: ["#545454"],
-    dataLabels: {
-      enabled: true,
-    },
-    stroke: {
-      curve: "straight",
-    },
-    title: {
-      text:
-        "My tryst with " + annualReads + " books in " + yearOfReading + "...",
-      align: "center",
-      style: {
-        fontFamily: "Inconsolata",
-        fontSize: "16",
-      },
-    },
-    grid: {
-      row: {
-        colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-        opacity: 0.5,
-      },
-    },
-    xaxis: {
-      categories: xaxisCategories,
-    },
-    yaxis: {
-      stepSize: 1,
-    },
-  };
-
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render();
-};
