@@ -206,6 +206,7 @@ const addBookToPage = function (element, bookListElement) {
   // 3. Create a table with 1 row and 2 columns
   const table = document.createElement("table");
   table.style.border = "none"; // Remove table border
+  table.style.width = "100%";
 
   const row = document.createElement("tr");
 
@@ -213,9 +214,12 @@ const addBookToPage = function (element, bookListElement) {
   const imgCell = document.createElement("td");
 
   imgCell.appendChild(imageElement); // Insert image into the first cell
+  //imgCell.style.width = "20%"; // Extend to fill the rest of the screen space
   // Create the second column for random text
   const textCell = document.createElement("td");
   textCell.style.width = "100%"; // Extend to fill the rest of the screen space
+  //xtCell.style.display = "inline-block";
+  //textCell.style.whiteSpace = "nowrap";
 
   // Add the image to the DOM, for example to the body
   let bookNameElement = document.createElement("strong");

@@ -23,7 +23,9 @@ li {
   display: flex;
   align-items: center;
   list-style-type: none; /* Remove default marker */
-  margin: 0.5rem;
+  margin: 0.1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 ol {
@@ -207,5 +209,29 @@ hr {
   }
   li::before {
     margin-right: 1rem; /* Space between number and text */
+  }
+}
+
+/********** extra Small devices only **********/
+@media (max-width: 431px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  ol {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  #month_image {
+    width: 3rem;
+  }
+
+  #chart {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  li::before {
+    margin-right: 0.5rem; /* Space between number and text */
   }
 }
