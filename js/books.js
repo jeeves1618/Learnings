@@ -390,13 +390,11 @@ lineSeperator();
 scrollManager();
 breakElement();
 
-document
-  .querySelector("#search-button-1")
-  .addEventListener("click", function () {
-    const searchToken = document.querySelector(".form-control-1");
-    console.log("Search requested for " + searchToken.value);
-    location.href = "results.html?token=" + searchToken.value;
-  });
+document.querySelector("#search-button").addEventListener("click", function () {
+  const searchToken = document.querySelector(".form-control");
+  console.log("Search requested for " + searchToken.value);
+  location.href = "results.html?token=" + searchToken.value;
+});
 
 document
   .querySelector("#search-button-2")
