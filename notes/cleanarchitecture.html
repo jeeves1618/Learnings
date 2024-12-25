@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Architecture</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/png" href="/img/icon.jpg" />
+    <style>
+      body {
+        margin: 2rem;
+        font-size: large;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      strong {
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px 12px;
+      }
+      th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      td:nth-child(2) {
+        text-align: right;
+      }
+      ol {
+        font-size: large;
+        font-weight: bolder;
+      }
+      li {
+        font-weight: normal;
+      }
+    </style>
+    <link rel="icon" type="image/png" href="img/icon.jpg" />
+  </head>
+  <body class="p-4">
+    <div class="container">
+      <h1 class="mb-4">Clean Architecture</h1>
+
+      <h4>Idea 1: "Behaviour Vs Structure"</h4>
+      <p>
+        Behaviour is how the program behaves. Structure is deals with the ease
+        of applying a change to the program. Bob clarifies that structure is
+        more important thatn behaviour.
+      </p>
+      <p>
+        If you give me a program that works perfectly but is impossible to
+        change, then it won’t work when the requirements change, and I won’t be
+        able to make it work. Therefore the program will become useless.
+      </p>
+      <p>
+        If you give me a program that does not work but is easy to change, then
+        I can make it work, and keep it working as requirements change.
+        Therefore the program will remain continually useful.
+      </p>
+      <h4>Idea 2: "Paradigms"</h4>
+      <ol>
+        <li>
+          <h5>
+            Structured programming imposes discipline on direct transfer of
+            control.
+          </h5>
+        </li>
+        <li>
+          <h5>
+            Object-oriented programming imposes discipline on indirect transfer
+            of control.
+          </h5>
+        </li>
+        <li>
+          <h5>Functional programming imposes discipline upon assignment.</h5>
+        </li>
+      </ol>
+      <hr />
+      <p>
+        <strong
+          >What does he mean by Object-oriented programming imposes discipline
+          on indirect transfer of control?</strong
+        >
+      </p>
+      <p>
+        When Robert Martin says that "Object-oriented programming imposes
+        discipline on indirect transfer of control," he's talking about how OOP
+        manages the flow of program execution through indirection—specifically
+        using concepts like encapsulation, polymorphism, and abstraction. This
+        discipline is essential for making code modular, maintainable, and
+        adaptable.
+      </p>
+      <p>Here’s what he means:</p>
+      <ol>
+        <li>
+          <strong>Indirect Transfer of Control:</strong> In programming, control
+          flow refers to the order in which individual statements, instructions,
+          or function calls are executed. In procedural programming, control
+          flow is often direct—you call a function, and it does exactly what’s
+          expected, often in a specific sequence. In OOP, however, indirect
+          control occurs through mechanisms like polymorphism and dynamic
+          dispatch, where the specific behavior isn’t fixed but is determined at
+          runtime based on the object’s type.
+        </li>
+        <li>
+          <strong>Discipline through Abstraction and Encapsulation:</strong> OOP
+          imposes rules on how and when this control can be transferred. By
+          using classes and objects, OOP encapsulates behaviors, ensuring that
+          control flows through defined interfaces rather than arbitrary jumps.
+          This discipline means that instead of calling any piece of code
+          directly, the flow of control is mediated by objects’ methods and
+          their interactions, which are well-defined and predictable.
+        </li>
+        <li>
+          <strong>Polymorphism as Controlled Indirection:</strong> Polymorphism
+          allows different classes to be treated as instances of the same
+          superclass, enabling different objects to respond to the same method
+          call in a way specific to their class. This dynamic dispatch
+          introduces an indirection where the specific method that executes
+          depends on the object type. However, OOP controls this indirection by
+          enforcing that each class implements a common interface or inherits
+          from a common superclass, ensuring consistency.
+        </li>
+        <li>
+          <strong>Reduced Complexity and Coupling:</strong> This controlled
+          indirection makes code more modular and less coupled, as each
+          component interacts through well-defined interfaces, not through
+          direct, hard-coded calls. This allows the internal implementation of
+          classes to be modified without affecting other parts of the system.
+        </li>
+      </ol>
+      <hr />
+      <p>
+        <strong
+          >What does he mean by Object-oriented programming imposes discipline
+          on indirect transfer of control?</strong
+        >
+      </p>
+      <p>
+        When Robert Martin says that "Functional programming imposes discipline
+        upon assignment," he's highlighting how functional programming (FP)
+        restricts or eliminates the use of mutable state (i.e., changing values
+        once they've been assigned). In FP, once a variable is assigned a value,
+        it cannot be modified, which has several implications for how code is
+        structured and behaves.
+      </p>
+      <p>Here’s what he means in more detail:</p>
+      <ol>
+        <li>
+          <strong>Immutability:</strong> In programming, control flow refers to
+          the order in which individual statements, instructions, or function
+          calls are executed. In procedural programming, control flow is often
+          direct—you call a function, and it does exactly what’s expected, often
+          in a specific sequence. In OOP, however, indirect control occurs
+          through mechanisms like polymorphism and dynamic dispatch, where the
+          specific behavior isn’t fixed but is determined at runtime based on
+          the object’s type.
+        </li>
+        <li>
+          <strong>Pure Functions:</strong> OOP imposes rules on how and when
+          this control can be transferred. By using classes and objects, OOP
+          encapsulates behaviors, ensuring that control flows through defined
+          interfaces rather than arbitrary jumps. This discipline means that
+          instead of calling any piece of code directly, the flow of control is
+          mediated by objects’ methods and their interactions, which are
+          well-defined and predictable.
+        </li>
+        <li>
+          <strong>No Side Effects:</strong> Polymorphism allows different
+          classes to be treated as instances of the same superclass, enabling
+          different objects to respond to the same method call in a way specific
+          to their class. This dynamic dispatch introduces an indirection where
+          the specific method that executes depends on the object type. However,
+          OOP controls this indirection by enforcing that each class implements
+          a common interface or inherits from a common superclass, ensuring
+          consistency.
+        </li>
+        <li>
+          <strong>Concurrency and Parallelism Benefits:</strong> This controlled
+          indirection makes code more modular and less coupled, as each
+          component interacts through well-defined interfaces, not through
+          direct, hard-coded calls. This allows the internal implementation of
+          classes to be modified without affecting other parts of the system.
+        </li>
+        <li>
+          <strong>Predictability and Debugging:</strong> This controlled
+          indirection makes code more modular and less coupled, as each
+          component interacts through well-defined interfaces, not through
+          direct, hard-coded calls. This allows the internal implementation of
+          classes to be modified without affecting other parts of the system.
+        </li>
+      </ol>
+      <hr />
+      <h4>Idea 3: "Work at your natural pace"</h4>
+      <p>
+        Newport's idea of a "natural pace" contrasts with the high-intensity,
+        fast-paced demands often associated with modern knowledge work. Here’s
+        how he explains and suggests implementing it:
+      </p>
+
+      <ol>
+        <li>
+          <h5>Avoid Overloading Your Schedule:</h5>
+          Newport advises against overloading your to-do list and daily
+          schedules. Instead, focus on fewer, meaningful tasks, allowing you to
+          complete them with higher quality and greater depth.
+        </li>
+        <li>
+          <h5>Embrace Longer Time Horizons:</h5>
+          Rather than rushing to complete projects, Newport suggests extending
+          deadlines to allow for thorough, thoughtful work. This approach lets
+          you focus deeply without the constant push to finish quickly, which
+          can sometimes lead to mediocre results.
+        </li>
+        <li>
+          <h5>Respect Your Cognitive and Physical Limits:</h5>
+          Newport encourages working within your natural energy cycles. For
+          example, if you know you focus best in the morning, structure your
+          most challenging tasks around that time. If you need breaks to stay
+          productive, incorporate them without feeling guilty.
+        </li>
+        <li>
+          <h5>Prioritize Deep Work Over Quantity:</h5>
+          Newport emphasizes quality over quantity. By focusing on producing
+          high-quality work that truly moves projects forward, you’re able to
+          create more value over time, even if you're working more slowly.
+        </li>
+      </ol>
+
+      <h4>Idea 4: "Obsess over quality"</h4>
+      <p>
+        In Slow Productivity, Cal Newport’s concept of “obsessing over quality”
+        encourages focusing on producing fewer, high-impact tasks and outcomes
+        rather than attempting to complete as many tasks as possible quickly.
+        Newport contrasts this with the traditional productivity mindset, which
+        often emphasizes speed, output quantity, and tight deadlines. His
+        approach suggests a shift toward valuing depth, craftsmanship, and
+        meaning in work. Here’s a closer look at Newport's main ideas behind
+        "obsessing over quality":
+      </p>
+      <ol>
+        <li>
+          <h5>Quality Over Quantity</h5>
+          <ul>
+            <li>
+              Newport argues that we should concentrate on fewer projects or
+              tasks but complete them with high quality and attention to detail.
+              This means resisting the urge to spread ourselves thin across
+              multiple low-impact activities or projects and, instead, deeply
+              investing in work that produces long-term value.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h5>Long-Term Impact and Craftsmanship</h5>
+          <ul>
+            <li>
+              He advocates for a return to “craftsmanship” where effort and
+              skill are highly valued. Craftsmanship is about creating something
+              enduring, which often requires more time and focus. Newport
+              believes that high-quality work will have a more lasting impact,
+              which aligns better with personal and professional growth goals.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h5>Slowing Down to Produce Meaningful Work</h5>
+          <ul>
+            <li>
+              Newport sees slowing down as a way to enhance both work quality
+              and well-being. By focusing on fewer tasks and doing them better,
+              we can minimize stress and burnout, making room for deliberate
+              thought, creativity, and skill development. This shift encourages
+              avoiding reactive, “always-busy” productivity habits in favor of
+              purposeful, concentrated effort.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h5>Reducing Overwhelm and Burnout</h5>
+          <ul>
+            <li>
+              Obsessing over quality” is Newport’s way of addressing the risks
+              of modern productivity culture. Constant multitasking, overloaded
+              schedules, and a hurried approach can lead to exhaustion without
+              producing meaningful accomplishments. By deliberately choosing
+              fewer, higher-quality tasks, individuals can prevent burnout and
+              find more fulfillment in their work.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

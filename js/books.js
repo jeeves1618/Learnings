@@ -140,9 +140,10 @@ let formatPage = function (formatedData) {
   charterFunction(booksReadData, xaxisCategories);
 };
 const getTopics = function () {
-  //fetch(`http://localhost:8080/book-list.json`) For testing with local Json.
+  //fetch(`http://localhost:8080/book-list.json`)
+  // For testing with local Json. `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/book-list.json`
   fetch(
-    `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/book-list.json`
+    `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/read-list.json`
   )
     .then(function (ajaxResponse) {
       //ajaxResponse can't be read since it is a readstream.
