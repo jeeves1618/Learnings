@@ -8,21 +8,32 @@ let annualReads = 0;
 let yearOfReading = searchParams.get("year");
 const currentDate = new Date();
 let currentYear = currentDate.getFullYear();
-if (yearOfReading == null) yearOfReading = currentYear;
+let displayLastTwelveMonths = false;
+if (yearOfReading == null) {
+  displayLastTwelveMonths = true;
+  yearOfReading = currentYear;
+}
 
 let booksReadData = [];
 let xaxisCategories = [];
+let titleText = "My " + yearOfReading + " Reads";
+if (displayLastTwelveMonths) titleText = "My Reads in Past 12 Months";
 const mainHeaderElement = document.getElementById("main-header-year");
-mainHeaderElement.textContent = "My " + yearOfReading + " Reads";
+mainHeaderElement.textContent = titleText;
 const titleElement = document.querySelector("title");
-titleElement.textContent = "My " + yearOfReading + " Reads";
+titleElement.textContent = titleText;
 var x = window.matchMedia("(max-width: 575px)");
 /*
 x.addEventListener("change", function () {
   getTopics();
 });
 */
-const charterFunction = function (booksReadData, xaxisCategories) {
+
+const charterFunction = function (
+  booksReadData,
+  xaxisCategories,
+  graphCaptionText
+) {
   var options = {
     series: [
       {
@@ -45,8 +56,7 @@ const charterFunction = function (booksReadData, xaxisCategories) {
       curve: "straight",
     },
     title: {
-      text:
-        "My tryst with " + annualReads + " books in " + yearOfReading + "...",
+      text: graphCaptionText,
       align: "center",
       style: {
         fontFamily: "Inconsolata",
@@ -73,39 +83,74 @@ const charterFunction = function (booksReadData, xaxisCategories) {
 
 let formatPage = function (formatedData) {
   let prevMonth = "00";
+  let monthsNumsOfYear = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  if (displayLastTwelveMonths) {
+    prevMonth = monthsNumsOfYear[11 - currentDate.getMonth()];
+  }
   let currentMonthInteger = 0;
   let skippedMonths = 0;
   const bookListElement = document.getElementById("book-list");
+  let monthsOfYear = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   for (const element of formatedData) {
     let yearToBeConsidered = filterByYear(element);
 
     if (yearToBeConsidered == yearOfReading) {
       let currentMonth = element.dateOfReading.substring(5, 7);
-      if (currentMonth > prevMonth) {
+      if (currentMonth < prevMonth) {
         skippedMonths = parseInt(currentMonth) - parseInt(prevMonth) - 1;
-        if (prevMonth != "00") booksReadData.push(currentMonthInteger);
-        for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
-          booksReadData.push(0);
-        }
-
-        breakMonth(currentMonth, bookListElement);
-        currentMonthInteger = 0;
-        prevMonth = currentMonth;
+        console.log(
+          "skippedMonths : " +
+            skippedMonths +
+            "currentMonth and  prevMonth : " +
+            currentMonth +
+            " and " +
+            prevMonth
+        );
+      } else if (currentMonth > prevMonth && currentMonth != "00") {
+        skippedMonths =
+          Math.abs(parseInt(currentMonth) - parseInt(prevMonth)) - 1;
+      } else {
+        skippedMonths = 0;
       }
-      addBookToPage(element, bookListElement);
-      currentMonthInteger = currentMonthInteger + 1;
+      if (prevMonth != "00") booksReadData.push(currentMonthInteger);
+      for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
+        booksReadData.push(0);
+      }
+
+      breakMonth(currentMonth, bookListElement);
+      currentMonthInteger = 0;
+      prevMonth = currentMonth;
     }
+    addBookToPage(element, bookListElement);
+    currentMonthInteger = currentMonthInteger + 1;
   }
 
-  booksReadData.push(currentMonthInteger);
-  skippedMonths = 0;
-  if (booksReadData.length < 12) skippedMonths = 12 - booksReadData.length;
-  for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
-    booksReadData.push(0);
-  }
-  annualReads = booksReadData.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
-  }, 0);
   let xaxisCategories = [];
   xaxisCategories = [
     "Jan",
@@ -136,8 +181,28 @@ let formatPage = function (formatedData) {
       "N",
       "D",
     ];
+
+    booksReadData.push(currentMonthInteger);
+    skippedMonths = 0;
+    if (booksReadData.length < 12) skippedMonths = 12 - booksReadData.length;
+    for (var pushCounter = 0; pushCounter < skippedMonths; pushCounter++) {
+      booksReadData.push(0);
+    }
+    annualReads = booksReadData.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
   }
-  charterFunction(booksReadData, xaxisCategories);
+  let graphCaptionText =
+    "My tryst with " + annualReads + " books in " + yearOfReading + "...";
+  if (displayLastTwelveMonths) {
+    graphCaptionText =
+      "My tryst with " +
+      annualReads +
+      " books in the last twelve months" +
+      "...";
+  }
+  console.log("booksReadData: " + booksReadData);
+  charterFunction(booksReadData, xaxisCategories, graphCaptionText);
 };
 const getTopics = function () {
   //fetch(`http://localhost:8080/book-list.json`)
@@ -156,29 +221,64 @@ const getTopics = function () {
           book.dateOfReading = book.dateOfPurchase;
       }
       //Sorting based on date last read and passing it to format page function
-      formatPage(
-        formatedData.sort((b1, b2) =>
-          b1.dateOfReading < b2.dateOfReading
-            ? -1
-            : b1.dateOfReading > b2.dateOfReading
-            ? 1
-            : 0
-        )
-      );
+      if (displayLastTwelveMonths) {
+        formatPage(
+          formatedData.sort((b1, b2) =>
+            b1.dateOfReading > b2.dateOfReading
+              ? -1
+              : b1.dateOfReading < b2.dateOfReading
+              ? 1
+              : 0
+          )
+        );
+      } else {
+        formatPage(
+          formatedData.sort((b1, b2) =>
+            b1.dateOfReading < b2.dateOfReading
+              ? -1
+              : b1.dateOfReading > b2.dateOfReading
+              ? 1
+              : 0
+          )
+        );
+      }
     });
 };
 
 const filterByYear = function (book) {
   let yearToBeConsidered;
+  let dateToBeConsidered;
+  let oneYearBeforeDate = new Date();
+  let todayDate = currentDate.toISOString().split("T")[0];
 
   if (book.dateOfReading.substring(0, 4) === "0001") {
-    if (book.dateOfPurchase.substring(0, 4) === "2024") {
+    if (book.dateOfPurchase.substring(0, 4) === "2025") {
       yearToBeConsidered = "0001";
+      dateToBeConsidered = "0001-01-01";
     } else {
       yearToBeConsidered = book.dateOfPurchase.substring(0, 4);
+      dateToBeConsidered = book.dateOfPurchase;
     }
   } else {
     yearToBeConsidered = book.dateOfReading.substring(0, 4);
+    dateToBeConsidered = book.dateOfReading;
+  }
+  if (displayLastTwelveMonths) {
+    oneYearBeforeDate.setFullYear(currentDate.getFullYear() - 1); // Subtract 1 year
+    oneYearBeforeDate.setMonth(currentDate.getMonth() + 1); // Add 1 month
+
+    // Step 3: Reset the day to the 1st of the month
+    oneYearBeforeDate.setDate(1);
+
+    // Step 4: Format the result as YYYY-MM-DD
+    const year = oneYearBeforeDate.getFullYear();
+    const month = String(oneYearBeforeDate.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+    const day = String(oneYearBeforeDate.getDate()).padStart(2, "0");
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    if (formattedDate < dateToBeConsidered)
+      yearToBeConsidered = currentDate.getFullYear();
   }
   return yearToBeConsidered;
 };
