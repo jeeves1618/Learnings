@@ -1,0 +1,15 @@
+Modularity is about breaking systems apart into smaller pieces, such as moving from a monolithic architecture style (like the traditional n-tiered layered architecture) to a highly distributed architecture style, like microservices. Granularity, on the other hand, is about the size of those pieces—how big a particular part of the system (or service) should be. 
+
+Modularity is measured using three key concepts: cohesion, coupling, and connascence.
+
+Cohesion refers to the extent to which a module’s parts should be contained within the same module. In other words, it measures how related the parts are to one another.
+
+Attempting to divide a cohesive module would only result in increased coupling and decreased readability. Lack of Cohesion in Methods (LCOM) metric is used to measure Cohesion.
+
+Afferent coupling measures the number of incoming connections to a code artifact (component, class, function, and so on). Efferent coupling measures the outgoing connections to other code artifacts. Metrices for coupling are abstractness, instability and distance from main sequence.
+Architects calculate Abstractness by calculating the ratio of the sum of abstract artifacts to the sum of the concrete and abstract ones. The easiest way to visualize this metric is to consider an application with 5,000 lines of code, all in one main() method. Its Abstractness numerator would be 1, while the denominator would be 5,000, yielding an Abstractness score of almost 0.
+Instability, is defined as the ratio of efferent coupling to the sum of both efferent and afferent coupling.
+Distance from the Main Sequence = |Abstractness + Instability - 1|. Note that both Abstractness and Instability are fractions whose results will always fall between 0 and 1. The Distance metric imagines an ideal relationship between Abstractness and Instability; classes that fall near this idealized line exhibit a healthy mixture of these two competing concerns.
+
+Connascence: Two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system. Two types of connascence: static and dynamic.
+Static connascence refers to source-code-level coupling (as opposed to execution-time coupling, covered in “Dynamic connascence”).
