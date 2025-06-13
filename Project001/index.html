@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AP Tech Talks Announcement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts: Oxygen -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Lato", Arial, sans-serif;
+        background: #f6fafd;
+        color: #23395d;
+      }
+      .announcement-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(35, 57, 93, 0.07);
+        padding: 2.5rem 2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+      .logo-space {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #e3f0fc 60%, #b3d8fd 100%);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 2rem;
+        font-size: 1.1rem;
+        color: #6ca0dc;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      .topic-title {
+        color: #1a5bb8;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .presenter {
+        color: #23395d;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+      .topic-time {
+        color: #6ca0dc;
+        font-size: 0.95rem;
+        font-weight: 400;
+      }
+      .date-badge {
+        background: #e3f0fc;
+        color: #1a5bb8;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 0.5rem 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        letter-spacing: 1px;
+      }
+      @media (max-width: 767px) {
+        .d-flex.align-items-center {
+          flex-direction: column;
+          align-items: flex-start !important;
+        }
+        .logo-space {
+          margin-bottom: 1.5rem;
+          margin-right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="announcement-card mx-auto" style="max-width: 700px">
+        <div class="d-flex align-items-center mb-4">
+          <div class="logo-space">
+            <!-- Place your AP Tech Talk logo here -->
+            <img
+              src="img/logo.jpg"
+              alt="AP Tech Talk Logo"
+              style="max-width: 160px; max-height: 160px"
+            />
+          </div>
+          <div>
+            <h1 class="mb-1" style="font-weight: 700; letter-spacing: 1px">
+              Pep Tech Talks
+            </h1>
+            <div class="date-badge">June 16<sup>th</sup>, Monday</div>
+            <div style="color: #5c7fa3; font-size: 1rem">
+              Join us for an inspiring session of knowledge sharing and
+              innovation!
+            </div>
+          </div>
+        </div>
+        <hr style="border-top: 2px solid #e3f0fc" />
+        <div class="mb-4">
+          <div class="topic-title mb-1">1. Mech Forum and Drive Reviews</div>
+          <div class="presenter mb-1">by John Doe</div>
+          <div class="topic-time mb-2">First 25 minutes</div>
+          <div style="color: #4d6fa3">
+            Kick off with a collaborative forum and insightful drive reviews to
+            set the stage for innovation.
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="topic-title mb-1">
+            2. Quick Coding for No Click: A HOME DIY
+          </div>
+          <div class="presenter mb-1">by Jabe Doe</div>
+          <div class="topic-time mb-2">Next 20 minutes</div>
+          <div style="color: #4d6fa3">
+            Discover hands-on approaches to streamline your blah blah blah.
+          </div>
+        </div>
+        <div>
+          <div class="topic-title mb-1">
+            3. Discover hands-on approaches to streamline your blah blah
+          </div>
+          <div class="presenter mb-1">by Jane Doe</div>
+          <div class="topic-time mb-2">Last 15 minutes</div>
+          <div style="color: #4d6fa3">
+            Explore the next-gen agent framework leveraging the Gemini Model for
+            advanced data canvas solutions.
+          </div>
+        </div>
+        <hr style="border-top: 2px solid #e3f0fc" />
+        <div class="text-end" style="color: #6ca0dc; font-size: 0.95rem">
+          We look forward to your participation!
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
