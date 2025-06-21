@@ -1,0 +1,16 @@
+{
+  "name": "favorite-book-parts",
+  "version": "1.0.0",
+  "description": "A simple webpage to list favorite parts from a book.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "open src/index.html"
+  },
+  "keywords": [
+    "book",
+    "favorites",
+    "webpage"
+  ],
+  "author": "",
+  "license": "ISC"
+}
