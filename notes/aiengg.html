@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Snippets</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #fff;
+        color: #111;
+        font-family: "Serif", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 1.25rem;
+      }
+      .container {
+        max-width: 800px;
+        margin: 3rem auto;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        padding: 2.5rem 2rem;
+      }
+      h1 {
+        color: #111;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+      .snippet {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #0c0c0c;
+      }
+      .snippet img {
+        max-width: 100%;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+      }
+      .snippet:last-child {
+        border-bottom: none;
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 1.2rem 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container shadow">
+      <h1>Introduction to Building AI with Foundation Models</h1>
+      <hr />
+      <div class="snippet">
+        <p>
+          A language model encodes statistical information about one or more
+          languages. For example, given the context “My favorite square is __”,
+          a language model that encodes English should predict “triangle” more
+          often than “horse”.
+        </p>
+      </div>
+      <div class="snippet">
+        <p>
+          The process of breaking the original text into tokens is called
+          tokenization. A token is not same a words. For instance singing is a
+          word. But it can be tokenized into two tokens: sing and ing.
+          Tokenization is a crucial step in preparing text data for machine
+          learning models.
+        </p>
+      </div>
+      <div class="snippet">
+        <img src="/img/notes/aiengg/aien_0102-1.jpg" alt="Book Illustration" />
+        <p class="mt-2">
+          <em
+            >Illustration: Two main types of language models: masked language
+            models and autoregressive language models. They differ based on what
+            information they can use to predict a token.</em
+          >
+        </p>
+      </div>
+      <div class="snippet">
+        <p>
+          Autoregressive language models are the models of choice for text
+          generation. Masked language models are commonly used for
+          non-generative tasks such as sentiment analysis and text
+          classification.
+        </p>
+      </div>
+      <div class="snippet">
+        <p>
+          As simple as it sounds, completion is incredibly powerful. Many tasks,
+          including translation, summarization, coding, and solving math
+          problems, can be framed as completion tasks. For example, given the
+          prompt: “How are you in French is …”, a language model might be able
+          to complete it with: “Comment ça va”, effectively making it a
+          translation model.
+        </p>
+      </div>
+      <div class="snippet">
+        <p>
+          LLMa are one set of ML models and what makes them special is that they
+          are self supervised models and succefully overcome the data labelling
+          bottleneck.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
