@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlantUML Sequence Diagrams — Quick Guide</title>
+    <style>
+      :root {
+        --bg: #0f172a; /* slate-900 */
+        --panel: #111827; /* gray-900 */
+        --card: #0b1220; /* custom dark */
+        --text: #e5e7eb; /* gray-200 */
+        --muted: #9ca3af; /* gray-400 */
+        --accent: #22d3ee; /* cyan-400 */
+        --accent-2: #a78bfa; /* violet-400 */
+        --border: #1f2937; /* gray-800 */
+        --code-bg: #0a0f1e; /* deep */
+        --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        --radius: 18px;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(
+            1200px 600px at 20% -10%,
+            rgba(34, 211, 238, 0.15),
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 800px at 120% 10%,
+            rgba(167, 139, 250, 0.12),
+            transparent 55%
+          ),
+          var(--bg);
+        color: var(--text);
+        font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 32px auto;
+        padding: 0 20px;
+      }
+      header {
+        background: linear-gradient(
+          180deg,
+          rgba(34, 211, 238, 0.12),
+          rgba(167, 139, 250, 0.12)
+        );
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        letter-spacing: 0.2px;
+      }
+      .subtitle {
+        color: var(--muted);
+        margin: 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 270px 1fr;
+        gap: 22px;
+        margin-top: 24px;
+      }
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      nav {
+        position: sticky;
+        top: 16px;
+        align-self: start;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      nav h2 {
+        margin: 4px 0 12px;
+        font-size: 1rem;
+        color: var(--accent);
+      }
+      nav a {
+        display: block;
+        color: var(--text);
+        text-decoration: none;
+        padding: 8px 10px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+      }
+      nav a:hover {
+        background: #0f1a2f;
+        border-color: #1e293b;
+      }
+      nav .small {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 22px;
+        box-shadow: var(--shadow);
+      }
+      h2 {
+        margin-top: 0;
+        color: var(--accent-2);
+        font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+      }
+      h3 {
+        color: var(--accent);
+        margin-top: 24px;
+      }
+      p {
+        margin: 10px 0;
+      }
+      ul {
+        margin: 8px 0 0 20px;
+      }
+
+      .code {
+        position: relative;
+        margin: 14px 0 22px;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .code pre {
+        margin: 0;
+        padding: 16px 18px;
+        background: var(--code-bg);
+        overflow: auto;
+      }
+      .code .label {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+      .copy {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        border: 1px solid var(--border);
+        background: #0f172a;
+        color: var(--text);
+        padding: 6px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+      .copy:active {
+        transform: translateY(1px);
+      }
+      .tip {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+      .kbd {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        border: 1px solid var(--border);
+        padding: 0.1rem 0.35rem;
+        border-radius: 6px;
+        background: #0f1a2f;
+      }
+      footer {
+        color: var(--muted);
+        margin: 28px 0 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="card">
+        <h1>PlantUML Sequence Diagrams — Quick Guide</h1>
+        <p class="subtitle">
+          A concise, copy‑pasteable reference covering participants, messages,
+          activation, control blocks, notes, lifecycles, async, and styling.
+        </p>
+      </header>
+
+      <div class="grid">
+        <nav>
+          <h2>Contents</h2>
+          <a href="#participants">1. Participants</a>
+          <a href="#messages">2. Messages</a>
+          <a href="#activation">3. Activation Bars</a>
+          <a href="#grouping">4. Grouping & Control</a>
+          <a href="#notes">5. Notes</a>
+          <a href="#lifecycle">6. Create & Destroy</a>
+          <a href="#async">7. Asynchronous Messages</a>
+          <a href="#styling">8. Styling Tips</a>
+          <p class="small">
+            Tip: Select a block and press <span class="kbd">Ctrl</span>+<span
+              class="kbd"
+              >C</span
+            >
+            / <span class="kbd">⌘</span>+<span class="kbd">C</span> to copy.
+          </p>
+        </nav>
+
+        <main>
+          <section id="participants" class="card">
+            <h2>1) Participants</h2>
+            <p>
+              Declare entities that take part in the interaction (users,
+              services, DBs, etc.). You can use generic <em>participant</em> or
+              UML‑flavored stereotypes.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" aria-label="Copy code" data-copy>
+                Copy
+              </button>
+              <pre><code>@startuml
+participant Alice
+participant Bob
+actor User
+boundary API
+control Controller
+entity Repo
+database DB
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="messages" class="card">
+            <h2>2) Messages</h2>
+            <p>
+              Show calls and returns. Solid arrows are synchronous; dashed
+              arrows are replies (or async responses). Use
+              <code>-&gt;&gt;</code> for asynchronous send.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+Alice -&gt; Bob: Hello Bob     ' sync call
+Bob --&gt; Alice: Hi Alice     ' reply
+Alice -&gt;&gt; Bob: Fire-and-forget event
+Bob &lt;- Alice: Reverse direction
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="activation" class="card">
+            <h2>3) Activation Bars</h2>
+            <p>
+              Activation (execution) bars emphasize when a lifeline is doing
+              work.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+Alice -&gt; Bob: Request
+activate Bob
+Bob -&gt; Bob: Internal work
+Bob --&gt; Alice: Response
+deactivate Bob
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="grouping" class="card">
+            <h2>4) Grouping &amp; Control Structures</h2>
+            <p>
+              Express branching, loops, optional paths, and parallel flows with
+              blocks like <code>alt</code>, <code>loop</code>, <code>opt</code>,
+              and <code>par</code>.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+Alice -&gt; Bob: Request
+alt success
+  Bob --&gt; Alice: Success response
+else failure
+  Bob --&gt; Alice: Error response
+end
+
+loop Retry up to 3 times
+  Alice -&gt; Bob: Try again
+end
+
+opt Cache hit
+  Bob --&gt; Alice: From cache
+end
+
+par Parallel A
+  Alice -&gt; Bob: A
+else Parallel B
+  Alice -&gt; Bob: B
+end
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="notes" class="card">
+            <h2>5) Notes</h2>
+            <p>
+              Add context with notes to the left/right of a participant, or
+              spanning multiple participants.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+Alice -&gt; Bob: Hello
+note right of Bob: Processing request
+Bob --&gt; Alice: Hi
+note over Alice, Bob
+Multi-line note over two participants
+end note
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="lifecycle" class="card">
+            <h2>6) Lifeline Creation &amp; Destruction</h2>
+            <p>
+              Make object lifecycles explicit with <code>create</code> and
+              <code>destroy</code>.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+Alice -&gt; Bob: Create object
+create Bob
+Bob -&gt; Alice: Acknowledged
+destroy Bob
+Alice --&gt; Bob: (no-op, Bob is gone)
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="async" class="card">
+            <h2>7) Asynchronous Messages</h2>
+            <p>
+              Great for event buses and queues where the sender doesn’t wait for
+              a response.
+            </p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+Alice -&gt;&gt; Queue: Publish message
+Queue -&gt;&gt; Worker: Deliver message
+Worker --&gt; Queue: Ack
+@enduml</code></pre>
+            </div>
+          </section>
+
+          <section id="styling" class="card">
+            <h2>8) Styling Tips</h2>
+            <p>Tune readability via <code>skinparam</code>.</p>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>@startuml
+skinparam sequenceArrowThickness 2
+skinparam sequenceParticipant underline
+skinparam participantPadding 30
+@enduml</code></pre>
+            </div>
+            <p class="tip">
+              Pro move: keep these snippets in version control next to your
+              services to document interactions alongside code.
+            </p>
+          </section>
+
+          <section class="card">
+            <h2>Why Sequence Diagrams?</h2>
+            <ul>
+              <li>Clarify API contracts and service boundaries</li>
+              <li>Align teams on request/response flows</li>
+              <li>Spot race conditions and missing error paths</li>
+              <li>Keep docs diff‑friendly and code‑reviewable</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+
+      <footer>
+        Built as a single‑file HTML reference. Copy &amp; paste any block into
+        your <code>.puml</code> and render with PlantUML.
+      </footer>
+    </div>
+
+    <script>
+      // Copy-to-clipboard for all code blocks with [data-copy]
+      document.querySelectorAll("[data-copy]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const pre = btn.nextElementSibling; // <pre><code>...</code></pre>
+          const code = pre && pre.querySelector("code");
+          if (!code) return;
+          const text = code.innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            const prev = btn.textContent;
+            btn.textContent = "Copied!";
+            setTimeout(() => (btn.textContent = prev), 1400);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
