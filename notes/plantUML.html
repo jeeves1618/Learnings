@@ -208,6 +208,7 @@
           <a href="#lifecycle">6. Create & Destroy</a>
           <a href="#async">7. Asynchronous Messages</a>
           <a href="#styling">8. Styling Tips</a>
+          <a href="#styling-detail">9. Styling Deep Dive</a>
           <p class="small">
             Tip: Select a block and press <span class="kbd">Ctrl</span>+<span
               class="kbd"
@@ -383,6 +384,107 @@ skinparam sequenceParticipant underline
 skinparam participantPadding 30
 @enduml</code></pre>
             </div>
+            <p class="tip">
+              Pro move: keep these snippets in version control next to your
+              services to document interactions alongside code.
+            </p>
+          </section>
+
+          <section id="styling-detail" class="card">
+            <h2>9) Styling Deep Dive</h2>
+            <p>
+              PlantUML styling can make your diagrams presentation‑ready. Here
+              are key techniques:
+            </p>
+
+            <h3>Global vs Scoped Skinparams</h3>
+            <div class="code">
+              <span class="label">.puml</span>
+              <button class="copy" data-copy>Copy</button>
+              <pre><code>skinparam backgroundColor #1E1E1E
+skinparam defaultTextAlignment center
+skinparam sequence {
+ArrowColor #22D3EE
+ActorBorderColor #A78BFA
+LifeLineBorderColor white
+LifeLineBackgroundColor #0F172A
+}</code></pre>
+            </div>
+
+            <h3>Colors</h3>
+<p>Use named colors, hex codes, or RGB values.</p>
+<div class="code"><pre><code>skinparam ArrowColor red
+skinparam ActorBackgroundColor #FFD580</code></pre></div>
+
+
+<h3>Fonts</h3>
+<div class="code"><pre><code>skinparam defaultFontName "Arial"
+skinparam defaultFontSize 14
+skinparam defaultFontStyle bold</code></pre></div>
+
+
+<h3>Line Styles</h3>
+<div class="code"><pre><code>skinparam sequenceArrowThickness 2
+skinparam sequenceLifeLineBorderThickness 1
+
+
+Alice -[#red,dashed]-> Bob: async call</code></pre></div>
+
+
+<h3>Spacing</h3>
+<div class="code"><pre><code>skinparam participantPadding 30
+skinparam BoxPadding 20
+skinparam NodeSpacing 50
+skinparam RankSpacing 40</code></pre></div>
+
+
+<h3>Themes</h3>
+<div class="code"><pre><code>!theme plain
+!theme spacelab
+!theme cerulean</code></pre></div>
+
+
+<h3>Per-Participant Styling</h3>
+<div class="code"><pre><code>participant "API Gateway" as API #LightBlue
+actor User <<Human>> #FFCC00</code></pre></div>
+
+
+<h3>Notes Styling</h3>
+<div class="code"><pre><code>note right of API #FFEB3B
+External call here
+end note</code></pre></div>
+
+
+<h3>Styled Login Flow Example</h3>
+<div class="code"><span class="label">.puml</span>
+<button class="copy" data-copy>Copy</button>
+<pre><code>@startuml
+skinparam backgroundColor #0F172A
+skinparam sequence {
+ArrowColor #22D3EE
+LifeLineBorderColor #A78BFA
+LifeLineBackgroundColor #1E1E2E
+ParticipantBorderColor #A78BFA
+ParticipantBackgroundColor #1E293B
+ParticipantFontColor white
+ArrowThickness 2
+}
+
+
+actor User #22D3EE
+participant "Frontend App" as FE #2563EB
+participant "Auth API" as API #9333EA
+participant "Database" as DB #059669
+
+
+User -> FE: Enter credentials
+FE -> API: POST /login
+API -> DB: SELECT * FROM users
+DB --> API: User record
+API --> FE: JWT Token
+FE --> User: Login success
+@enduml</code></pre>
+</div>
             <p class="tip">
               Pro move: keep these snippets in version control next to your
               services to document interactions alongside code.
