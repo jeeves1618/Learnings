@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Learning Journey 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: #fafafa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        text-align: center;
+        padding: 40px 20px;
+        background: #ffffff;
+        color: #333;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        font-weight: 300;
+      }
+
+      header p {
+        margin: 10px 0 0 0;
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .explanation {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .explanation h2 {
+        margin-top: 0;
+        color: #333;
+        font-weight: 400;
+      }
+
+      .explanation p {
+        margin: 15px 0;
+        color: #555;
+      }
+
+      .timeline-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .path {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 30px;
+        position: relative;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .path h2 {
+        margin-top: 0;
+        text-align: center;
+        color: #333;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 60px;
+        border-left: 2px solid #e0e0e0;
+      }
+
+      .item {
+        margin-bottom: 30px;
+        position: relative;
+        padding: 15px 0;
+      }
+
+      .item::before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: 20px;
+        width: 16px;
+        height: 16px;
+        background: #b3d9ff;
+        border: 2px solid #4a90e2;
+        border-radius: 50%;
+      }
+
+      .item strong {
+        color: #333;
+      }
+
+      .item span {
+        display: block;
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .today-line {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #ff6b6b;
+        z-index: 10;
+      }
+
+      .today-label {
+        position: absolute;
+        left: 5px;
+        background: #ff6b6b;
+        color: white;
+        padding: 3px 8px;
+        font-size: 12px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+
+      a {
+        color: #4a90e2;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #357abd;
+        text-decoration: underline;
+      }
+
+      @media (min-width: 768px) {
+        .timeline-wrapper {
+          flex-direction: row;
+        }
+
+        .path {
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>AI Learning Plan (May–Dec 2026)</h1>
+      <p>Starting May 1st 2026 | Why Path + How Path running in parallel</p>
+    </header>
+
+    <div class="container">
+      <div class="explanation">
+        <h2>Understanding the Paths</h2>
+        <p>
+          The <strong>Why Path</strong> delves into the profound significance of
+          AI in our daily lives, professional endeavors, and broader
+          interactions with the world. It explores what it truly means to be
+          human in an era where technology increasingly shapes our reality. This
+          path serves as a motivational cornerstone, igniting passion and
+          purpose. Without it, the technical journey of the How Path can feel
+          mundane and disconnected from meaningful impact.
+        </p>
+        <p>
+          The <strong>How Path</strong>, in contrast, is a hands-on exploration
+          of leveraging cutting-edge foundational Large Language Models (LLMs).
+          It focuses on constructing intelligent agents and developing agentic
+          solutions that address real-world business challenges. This path
+          builds deep technical expertise, transforming theoretical knowledge
+          into practical, innovative applications that drive value in
+          professional settings.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <!-- WHY PATH -->
+        <div class="path" id="whyPath">
+          <h2><i class="fas fa-brain"></i> WHY Path</h2>
+          <div class="timeline" id="whyTimeline"></div>
+        </div>
+
+        <!-- HOW PATH -->
+        <div class="path" id="howPath">
+          <h2><i class="fas fa-cogs"></i> HOW Path</h2>
+          <div class="timeline" id="howTimeline"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const startDate = new Date("2026-05-01");
+      const today = new Date();
+
+      // ---------- DATA ----------
+
+      const whyBooks = [
+        {
+          title: "Artificial Intelligence: A Guide for Thinking Humans",
+          author: "Melanie Mitchell",
+          link: "https://www.amazon.in/gp/product/0241404835/",
+          days: 30,
+        },
+        {
+          title: "God, Human, Animal, Machine",
+          author: "Meghan O'gieblyn",
+          link: "https://www.amazon.in/God-Human-Animal-Machine-Technology/dp/B08R94WQGN/",
+          days: 45,
+        },
+        {
+          title: "Competing in the Age of AI",
+          author: "Marco Iansiti and Karim R. Lakhani",
+          link: "https://www.amazon.in/gp/product/1633697622/",
+          days: 45,
+        },
+        {
+          title: "The Alignment Problem",
+          author: "Brian Christian",
+          link: "https://www.amazon.in/gp/product/1786494337/",
+          days: 60,
+        },
+        {
+          title: "The Age of AI",
+          author: "Henry A Kissinger, Eric Schmidt and Daniel Huttenloche",
+          link: "https://www.amazon.in/dp/1529375991",
+          days: 60,
+        },
+      ];
+
+      const howBooks = [
+        {
+          title: "AI Engineering",
+          author: "Chip Huyen",
+          link: "https://www.amazon.in/AI-Engineering-Building-Applications-Foundation/dp/1098166302",
+          days: 120,
+        },
+        {
+          title: "Artificial Intelligence: A Modern Approach",
+          author: "Russell/Norvig",
+          link: "https://www.amazon.in/Artificial-Intelligence-Modern-Approach-4e/dp/9356063575/",
+          days: 123,
+        },
+      ];
+
+      // ---------- FUNCTIONS ----------
+
+      function buildTimeline(containerId, books) {
+        const container = document.getElementById(containerId);
+
+        let currentDate = new Date(startDate);
+
+        books.forEach((book) => {
+          let endDate = new Date(currentDate);
+          endDate.setDate(endDate.getDate() + book.days);
+
+          const div = document.createElement("div");
+          div.className = "item";
+
+          div.innerHTML = `
+      <a href="${book.link}" target="_blank"><strong>${book.title}</strong></a> by ${book.author}
+      <span>${formatDate(currentDate)} → ${formatDate(endDate)} (${book.days} days)</span>
+      `;
+
+          container.appendChild(div);
+
+          currentDate = new Date(endDate);
+          currentDate.setDate(currentDate.getDate() + 1);
+        });
+      }
+
+      function formatDate(date) {
+        return date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+      }
+
+      // ---------- TODAY LINE ----------
+
+      function addTodayLine() {
+        const totalDuration = new Date("2026-12-31") - startDate;
+        const elapsed = today - startDate;
+
+        if (elapsed < 0 || elapsed > totalDuration) return;
+
+        const percent = (elapsed / totalDuration) * 100;
+
+        document.querySelectorAll(".timeline").forEach((timeline) => {
+          const line = document.createElement("div");
+          line.className = "today-line";
+          line.style.top = percent + "%";
+
+          const label = document.createElement("div");
+          label.className = "today-label";
+          label.style.top = percent + "%";
+          label.innerText = "Today";
+
+          timeline.appendChild(line);
+          timeline.appendChild(label);
+        });
+      }
+
+      // ---------- INIT ----------
+
+      buildTimeline("whyTimeline", whyBooks);
+      buildTimeline("howTimeline", howBooks);
+      addTodayLine();
+    </script>
+  </body>
+</html>
