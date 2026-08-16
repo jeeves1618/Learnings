@@ -124,10 +124,38 @@ hr {
 
 .glyphicon-color {
   color: white;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  text-shadow:
+    -2px 0 black,
+    0 2px black,
+    2px 0 black,
+    0 -2px black;
   font-size: 1.5em;
 }
 
+.glyphicon-star-half {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  overflow: hidden;
+}
+
+.glyphicon-star-half::before {
+  content: "\e006"; /* glyphicon-star */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+.glyphicon-star-half::after {
+  content: "\e006"; /* glyphicon-star */
+  color: transparent;
+}
+.tilted-star {
+  display: inline-block;
+  transform: rotate(-5deg);
+}
 /********** Extra Large devices only **********/
 @media (min-width: 1200px) {
   body {

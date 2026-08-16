@@ -143,7 +143,7 @@ const getTopics = function () {
   //fetch(`http://localhost:8080/book-list.json`)
   // For testing with local Json. `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/book-list.json`
   fetch(
-    `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/read-list.json`
+    `https://raw.githubusercontent.com/jeeves1618/Spring-Learnings/master/Librarian%202.0/src/main/resources/read-list.json`,
   )
     .then(function (ajaxResponse) {
       //ajaxResponse can't be read since it is a readstream.
@@ -161,9 +161,9 @@ const getTopics = function () {
           b1.dateOfReading < b2.dateOfReading
             ? -1
             : b1.dateOfReading > b2.dateOfReading
-            ? 1
-            : 0
-        )
+              ? 1
+              : 0,
+        ),
       );
     });
 };
@@ -262,10 +262,26 @@ const addBookToPage = function (element, bookListElement) {
   //orderedListElement.append(authorNameElement);
   textCell.appendChild(spaceTextElement);
   //orderedListElement.append("  ");
+  const rating = Number(element.ratingOfUsefulness);
   const starElement = [];
-  for (let i = 0; i < element.ratingOfUsefulness; i++) {
-    starElement[i] = document.createElement("span");
-    starElement[i].className = "glyphicon glyphicon-star";
+
+  const fullStars = Math.floor(rating);
+
+  console.log("Rating for " + element.bookTitle + " is " + rating);
+  console.log("Full stars for " + element.bookTitle + " is " + fullStars);
+
+  for (let i = 0; i < fullStars; i++) {
+    const star = document.createElement("span");
+    star.className = "glyphicon glyphicon-star";
+    starElement.push(star);
+  }
+
+  if (rating % 1 === 0.5) {
+    const halfStar = document.createElement("span");
+    halfStar.className = "glyphicon glyphicon-star-half tilted-star";
+    starElement.push(halfStar);
+
+    console.log("Half star added for " + element.bookTitle);
   }
   for (let i = 0; i < element.ratingOfUsefulness; i++) {
     textCell.appendChild(starElement[i]);
@@ -432,7 +448,7 @@ gestureZone.addEventListener(
     touchstartX = event.changedTouches[0].screenX;
     touchstartY = event.changedTouches[0].screenY;
   },
-  false
+  false,
 );
 
 gestureZone.addEventListener(
@@ -442,7 +458,7 @@ gestureZone.addEventListener(
     touchendY = event.changedTouches[0].screenY;
     handleGesture(event);
   },
-  false
+  false,
 );
 
 function handleGesture(e) {
