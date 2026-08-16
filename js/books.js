@@ -270,6 +270,13 @@ const addBookToPage = function (element, bookListElement) {
   console.log("Rating for " + element.bookTitle + " is " + rating);
   console.log("Full stars for " + element.bookTitle + " is " + fullStars);
 
+  // Create a container for all the stars
+  const starContainer = document.createElement("span");
+  starContainer.className = "rating-stars";
+  starContainer.setAttribute("data-toggle", "tooltip");
+  starContainer.setAttribute("data-placement", "top");
+  starContainer.setAttribute("title", "Rating: " + rating + " / 5");
+
   for (let i = 0; i < fullStars; i++) {
     const star = document.createElement("span");
     star.className = "glyphicon glyphicon-star";
@@ -284,10 +291,23 @@ const addBookToPage = function (element, bookListElement) {
     console.log("Half star added for " + element.bookTitle);
   }
   for (let i = 0; i < element.ratingOfUsefulness; i++) {
-    textCell.appendChild(starElement[i]);
+    starContainer.appendChild(starElement[i]);
     //orderedListElement.append(starElement[i]);
   }
 
+  textCell.appendChild(starContainer);
+
+  // Bootstrap tooltip
+  $(starContainer).tooltip();
+
+  // Support tap on iPhone/iPad
+  starContainer.addEventListener("click", function () {
+    $(this).tooltip("show");
+
+    setTimeout(() => {
+      $(this).tooltip("hide");
+    }, 2000);
+  });
   // Append both cells to the row
   row.appendChild(imgCell);
   row.appendChild(textCell);

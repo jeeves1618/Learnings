@@ -156,6 +156,15 @@ hr {
   display: inline-block;
   transform: rotate(-5deg);
 }
+.rating-stars {
+  cursor: pointer;
+  display: inline-block;
+}
+.tooltip-inner {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 14px;
+}
 /********** Extra Large devices only **********/
 @media (min-width: 1200px) {
   body {
