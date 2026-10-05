@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Useful Framework for Thinking About Teams, Architecture, and Flow</title>
+<style>
+:root{--bg:#f5f3ef;--paper:#fff;--text:#252525;--muted:#6b6b6b;--accent:#8b3a2f;--border:#e5e0d8;--max:760px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;line-height:1.78}
+main{width:min(calc(100% - 32px),var(--max));margin:48px auto;background:var(--paper);padding:clamp(28px,6vw,64px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
+.eyebrow{margin:0 0 12px;color:var(--accent);font:700 .78rem/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+h1{margin:.1em 0 .25em;font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;font-weight:700}
+.rating{color:#b37a16;letter-spacing:.08em;font:700 1.15rem/1.4 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-bottom:30px}
+.book{margin:0 0 36px;padding:16px 20px;border-left:3px solid var(--accent);background:#faf8f4;font-size:1rem}
+.book strong{display:block;margin-bottom:4px}
+p{margin:0 0 1.25em}
+p.lead{font-size:1.12rem}
+blockquote{margin:2em 0;padding:18px 22px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:1.16rem;font-style:italic}
+footer{margin-top:42px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font:.82rem/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+@media print{body{background:#fff}main{width:100%;margin:0;box-shadow:none;padding:24px}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Book Review · ★★★★☆</p>
+<h1>A Useful Framework for Thinking About Teams, Architecture, and Flow</h1>
+<div class="rating" aria-label="Four out of five stars">★★★★☆</div>
+
+<div class="book">
+<strong>Team Topologies: Organizing Business and Technology Teams for Fast Flow</strong>
+Matthew Skelton &amp; Manuel Pais
+</div>
+
+<p class="lead"><em>Team Topologies</em> is one of those books where I found myself underlining a lot more than I was able to fully absorb. Matthew Skelton and Manuel Pais make a compelling case that software architecture and organizational design cannot really be separated. Conway’s Law is the starting point, but the book takes the idea much further: if our software reflects the way teams communicate, then deliberately designing teams and their interactions becomes an architectural decision in its own right.</p>
+
+<p>One of the book’s strongest ideas is that <strong>the team, rather than the individual, is the fundamental unit of software delivery</strong>. Teams need clear responsibilities, manageable cognitive load, and well-defined boundaries. Asking everyone to communicate with everyone else is not collaboration; it is a recipe for organizational spaghetti. Limiting communication paths and establishing explicit team boundaries can therefore help create more modular software as well as more effective organizations.</p>
+
+<p>The four fundamental team topologies are the heart of the book: <strong>stream-aligned, enabling, complicated-subsystem, and platform teams</strong>. The stream-aligned team is the centre of gravity, while the other three exist primarily to support its ability to deliver. I particularly liked the idea that these structures can be <em>fractal</em>—the same principles can apply when we move from individual teams to teams of teams.</p>
+
+<p>The discussion of team interaction modes is equally useful. Collaboration, X-as-a-Service, and facilitating are not competing philosophies; they are different modes that should be used deliberately depending on what teams are trying to accomplish. Collaboration can generate innovation, but too much collaboration can destroy flow. A good service boundary can allow teams to move independently, while facilitating can help a team overcome a capability gap without creating a permanent dependency.</p>
+
+<p>Another important insight is that <strong>there is no universally correct team topology</strong>. The right structure depends on organizational scale, technical and cultural maturity, cognitive load, engineering discipline, and the stage of evolution of the product or platform. Teams and their interactions therefore need to evolve as the organization moves between exploring, exploiting, sustaining, and retiring different capabilities.</p>
+
+<p>The book also makes a strong argument for choosing software boundaries from a <strong>team-first perspective</strong>, while being careful about hidden monoliths and coupling in the delivery chain. Business-domain boundaries and bounded contexts become much more meaningful when they align with sustainable team ownership.</p>
+
+<p>My four-star rating is partly about the book, but also about <strong>the format in which I consumed it</strong>. I listened to the Audible version, and I suspect that was not the best way for me to experience this particular book. The ideas are quite dense and interconnected, and concepts such as cognitive load, Conway’s Law, team boundaries, the four topologies, and the three interaction modes benefit from being seen together, revisited, and perhaps even scribbled over in the margins. The Audible edition does include an accompanying PDF, but I still found myself struggling to maintain focus through some of the more conceptual sections.</p>
+
+<p>So my advice to prospective readers is simple: <strong>read this book rather than listen to it</strong>. This is not really a book I would recommend consuming passively during a commute. It is a book to read with a pencil—or, more realistically these days, a highlighter and a notebook—and to pause occasionally to ask how the ideas map to your own organization.</p>
+
+<p>I suspect it is also a book that becomes more valuable when revisited against a real organization rather than simply read from beginning to end.</p>
+
+<blockquote>
+The practical conclusion is perhaps the most useful: <strong>start with the team, identify the streams, find the thinnest viable platform, identify capability gaps, and deliberately practice team interactions.</strong>
+</blockquote>
+
+<p>A very useful framework for anyone thinking about how engineering organizations should be structured for faster flow. I may not have absorbed everything on the first pass, but there is enough here to make me want to return to it—with the paperback this time.</p>
+
+<footer>
+Review of <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em> by Matthew Skelton and Manuel Pais.
+</footer>
+</main>
+</body>
+</html>
