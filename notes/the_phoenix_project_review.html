@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ef">
+  <title>The Phoenix Project — 3-Star Book Review</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fbfaf7;
+      --ink: #252525;
+      --muted: #6f6a63;
+      --accent: #a64b35;
+      --line: #e7e0d7;
+      --soft: #f2ede6;
+    }
+    body {
+      background: #f1eee9;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+    .review-shell {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .review-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(47, 38, 29, .08);
+    }
+    .review-header {
+      padding: clamp(1.6rem, 5vw, 3.2rem);
+      background: linear-gradient(135deg, #f8f1e9, #fdfbf7 70%);
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      margin: .8rem 0 1rem;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.08rem;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .stars {
+      color: #c18a32;
+      letter-spacing: .12em;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.15rem;
+    }
+    .rating-label {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .9rem;
+      margin-left: .45rem;
+      letter-spacing: 0;
+    }
+    .book-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.4rem;
+    }
+    .meta-pill {
+      border: 1px solid #e2d5c7;
+      background: rgba(255,255,255,.55);
+      border-radius: 999px;
+      padding: .28rem .75rem;
+      color: #5f574f;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+    }
+    .review-body {
+      padding: clamp(1.5rem, 5vw, 3.2rem);
+      font-size: 1.08rem;
+    }
+    .review-body p {
+      margin-bottom: 1.25rem;
+    }
+    .review-body em {
+      color: #4c4038;
+    }
+    .section-label {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .verdict {
+      margin-top: 2rem;
+      padding: 1.25rem 1.4rem;
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+    }
+    .verdict p:last-child { margin-bottom: 0; }
+    .review-footer {
+      border-top: 1px solid var(--line);
+      padding: 1rem clamp(1.5rem, 5vw, 3.2rem);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .82rem;
+    }
+    @media (max-width: 575.98px) {
+      .review-shell { margin: 1rem auto; padding: 0 .55rem; }
+      .review-card { border-radius: 13px; }
+      .review-body { font-size: 1.02rem; }
+    }
+    @media print {
+      body { background: white; }
+      .review-shell { margin: 0 auto; max-width: 100%; }
+      .review-card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="review-shell">
+    <article class="review-card">
+      <header class="review-header">
+        <div class="eyebrow">Book Review</div>
+        <h1>The Phoenix Project</h1>
+        <p class="subtitle">A Novel about IT, DevOps, and Helping Your Business Win</p>
+        <div class="d-flex align-items-center flex-wrap">
+          <span class="stars" aria-label="3 out of 5 stars">★★★☆☆</span>
+          <span class="rating-label">3 out of 5 stars</span>
+        </div>
+        <div class="book-meta">
+          <span class="meta-pill">Gene Kim</span>
+          <span class="meta-pill">Kevin Behr</span>
+          <span class="meta-pill">George Spafford</span>
+        </div>
+      </header>
+
+      <div class="review-body">
+        <p class="section-label">A good idea that doesn't quite live up to its reputation</p>
+
+        <p><em>The Phoenix Project</em> by Gene Kim, Kevin Behr, and George Spafford is widely regarded as a seminal book on DevOps and IT management. Unfortunately, it didn't quite live up to the hype for me.</p>
+
+        <p>The comparison with Eliyahu Goldratt's <em>The Goal</em> is inevitable, since <em>The Phoenix Project</em> borrows heavily from the same storytelling template. Both books use a business crisis to introduce management principles through a novel rather than a conventional textbook. However, where <em>The Goal</em> succeeds in making the reader understand the underlying problem and appreciate the reasoning behind its solution, <em>The Phoenix Project</em> falls short.</p>
+
+        <p>My biggest issue is that the problems facing the IT organization are not explained adequately. The authors repeatedly draw parallels between IT operations and manufacturing processes, but I found these analogies difficult to relate to the actual challenges being described. The manufacturing framework often feels imposed on the IT environment rather than emerging naturally from it.</p>
+
+        <p>Reading this book in 2026 also raises expectations that it doesn't quite meet. Given its focus on DevOps, I expected a deeper exploration of the engineering practices, technical approaches, and organizational changes that could address the problems introduced in the story. Instead, the solutions remain largely at a high level. The book does a reasonable job of introducing concepts, but it doesn't go far enough into how to implement them in practice.</p>
+
+        <p>The storytelling presents another challenge. When time is a scarce resource, a novel that spends considerable effort developing its characters needs to make that investment worthwhile. In <em>The Goal</em>, Alex Rogo's personal journey is an integral part of understanding the ideas and makes his struggles worth following. In contrast, Bill Palmer, the protagonist of <em>The Phoenix Project</em>, never quite earns the same level of investment from me. His journey doesn't deliver enough additional insight to justify the time spent on characterization.</p>
+
+        <p>To be fair, the book offers a useful introduction to thinking about IT as a system, identifying bottlenecks, managing work in progress, and aligning technology operations with business outcomes. Readers new to DevOps or IT management may find the narrative format an accessible way to encounter these ideas.</p>
+
+        <p>However, for someone looking for a convincing explanation of IT's operational challenges and a deeper understanding of how DevOps addresses them, the book feels incomplete.</p>
+
+        <div class="verdict">
+          <p class="section-label">Verdict</p>
+          <p>A worthwhile introduction to some important ideas, but one that falls short of its reputation. If you have read <em>The Goal</em>, the comparison may leave you disappointed. And if you are looking for technical depth on DevOps, you will need to look elsewhere.</p>
+          <p><strong>Rating: 3/5</strong></p>
+        </div>
+      </div>
+
+      <footer class="review-footer">
+        Personal review · The Phoenix Project · 3/5
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
